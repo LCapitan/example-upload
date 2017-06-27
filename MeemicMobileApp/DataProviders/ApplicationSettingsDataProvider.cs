@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Threading.Tasks;
 using MeemicMobileApp.Models;
 using Realms;
 
@@ -50,10 +49,9 @@ namespace MeemicMobileApp.DataProviders
 		/// <summary>
 		/// Set the specified key and value.
 		/// </summary>
-		/// <returns>The set.</returns>
 		/// <param name="key">The key </param>
 		/// <param name="value">If set to <c>true</c> value.</param>
-		public async Task Set(string key, bool value)
+		public void Set(string key, bool value)
         {
             var record = realm.All<ApplicationSettings>().FirstOrDefault(x => x.Key.Equals(key, StringComparison.OrdinalIgnoreCase));
             var transaction = realm.BeginWrite();

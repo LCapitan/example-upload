@@ -21,10 +21,9 @@ namespace MeemicMobileApp.DataProviders
         /// <summary>
         /// Set the specified key and value.
         /// </summary>
-        /// <returns>The set.</returns>
         /// <param name="key">The key </param>
         /// <param name="value">If set to <c>true</c> value.</param>
-        Task Set(string key, bool value);
+        void Set(string key, bool value);
 
     }
 }

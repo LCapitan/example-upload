@@ -77,7 +77,7 @@ namespace MeemicMobileApp.ViewModels.Onboarding
 
         private async Task ExecuteYesCommand() 
         {
-            await AppSettings.Set("FoundationClub", true);
+            AppSettings.Set("FoundationClub", true);
             await SelectPage(meemicHolder, true);
         }
 
@@ -85,7 +85,7 @@ namespace MeemicMobileApp.ViewModels.Onboarding
 
         private async Task ExecuteNoCommand() 
         {
-            await AppSettings.Set("FoundationClub", false);
+            AppSettings.Set("FoundationClub", false);
             await SelectPage(meemicHolder, false);
         }
 
@@ -100,7 +100,9 @@ namespace MeemicMobileApp.ViewModels.Onboarding
             else if (foundationClub) 
             {
                 Application.Current.MainPage = new LoginView();
-            } else {
+            } 
+            else 
+            {
                 await PushPageAsync(new LearnMoreView(), true);
             }
         }

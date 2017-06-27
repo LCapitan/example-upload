@@ -58,5 +58,35 @@ namespace MeemicMobileApp.ViewModels.Base
             await Application.Current.MainPage.Navigation.PopModalAsync(animate);
         }
 
+
+
+        /// <summary>
+        /// Displays an Alert on the current page
+        /// </summary>
+        /// <returns>True is accepted, false is canceled</returns>
+        /// <param name="title">Title to display</param>
+        /// <param name="message">Message to display</param>
+        /// <param name="accept">Accept button title</param>
+        /// <param name="cancel">Cancel button title</param>
+        protected async Task<bool> DisplayAlert(string title, string message, string accept, string cancel)
+        {
+            return await Application.Current.MainPage.DisplayAlert(title, message, accept, cancel);
+        }
+
+
+
+		/// <summary>
+		/// Displays a ActionSheet on the current page
+		/// </summary>
+		/// <returns>String of which button was clicked</returns>
+		/// <param name="title">Title of the action sheeet </param>
+		/// <param name="cancel">Title of the cancel button, null if you do not wish to display it</param>
+		/// <param name="destruction">Title of the destruction button, null if you do not wish to display it</param>
+		/// <param name="buttons">Array of additional buttons</param>
+		protected async Task<string> DisplayActionSheet(string title, string cancel, string destruction, params string[] buttons)
+        {
+            return await Application.Current.MainPage.DisplayActionSheet(title, cancel, destruction, buttons);
+        }
+
     }
 }

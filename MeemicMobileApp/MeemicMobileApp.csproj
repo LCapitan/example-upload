@@ -45,6 +45,9 @@
     <EmbeddedResource Include="Views\Onboarding\MeemicAccountCenterQuestionView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\MeemicWebView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -79,6 +82,10 @@
       <DependentUpon>MeemicAccountCenterQuestionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Onboarding\MeemicAccountCenterQuestionViewModel.cs" />
+    <Compile Include="Views\Shared\MeemicWebView.xaml.cs">
+      <DependentUpon>MeemicWebView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Shared\MeemicWebViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -90,6 +97,8 @@
     <Folder Include="DataProviders\" />
     <Folder Include="ViewModels\Login\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\Shared\" />
+    <Folder Include="ViewModels\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

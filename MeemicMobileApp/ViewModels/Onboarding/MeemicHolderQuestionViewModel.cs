@@ -45,7 +45,7 @@ namespace MeemicMobileApp.ViewModels.Onboarding
 
         private async Task ExecuteYesButton() 
         {
-            await AppSettings.Set("MeemicHolder", true);
+            AppSettings.Set("MeemicHolder", true);
             await PushPageAsync(new MeemicMobileApp.Views.Onboarding.FoundationClubMemberQuestionView());
         }
 
@@ -53,7 +53,7 @@ namespace MeemicMobileApp.ViewModels.Onboarding
 
         private async Task ExecuteNoCommand() 
         {
-            await AppSettings.Set("MeemicHolder", false);
+            AppSettings.Set("MeemicHolder", false);
             await PushPageAsync(new MeemicMobileApp.Views.Onboarding.FoundationClubMemberQuestionView());
         }
 
