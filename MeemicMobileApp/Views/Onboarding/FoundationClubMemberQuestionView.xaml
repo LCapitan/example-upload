@@ -3,10 +3,16 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.Onboarding; assembly=MeemicMobileApp"
+    xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp"
     x:Class="MeemicMobileApp.Views.Onboarding.FoundationClubMemberQuestionView"
     BackgroundColor="#FFEE7C1D">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <dataProviders:ApplicationSettingsDataProvider x:Key="ApplicationSettingsDataProvider"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
-        <viewModels:FoundationClubMemberQuestionViewModel />
+        <viewModels:FoundationClubMemberQuestionViewModel AppSettings="{StaticResource ApplicationSettingsDataProvider}" />
     </ContentPage.BindingContext>
 	<ContentPage.Content>
         <StackLayout>

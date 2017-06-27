@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using MeemicMobileApp.DataProviders;
 using MeemicMobileApp.ViewModels.Base;
+using MeemicMobileApp.Views.Login;
+using MeemicMobileApp.Views.Onboarding;
 using Xamarin.Forms;
 
 namespace MeemicMobileApp.ViewModels.Onboarding
@@ -14,6 +14,8 @@ namespace MeemicMobileApp.ViewModels.Onboarding
     public class FoundationClubMemberQuestionViewModel : BaseViewModel
     {
         private bool meemicHolder = false;
+        private IApplicationSettingsDataProvider appSettings;
+
 
 
         /// <summary>
@@ -33,7 +35,30 @@ namespace MeemicMobileApp.ViewModels.Onboarding
         /// <summary>
         /// Application Settings stored in Relam
         /// </summary>
-        public IApplicationSettingsDataProvider AppSettings { get; set; }
+        public IApplicationSettingsDataProvider AppSettings 
+        {
+            get
+            {
+                return appSettings;
+            }
+            set 
+            {
+                if(value != null)
+                {
+                    // @NOTE(sjv): Below is needed since the VM ctor is run before props are set
+                    appSettings = value;
+
+					var mh = AppSettings.GetBool("MeemicHolder");
+
+					// We dont have a value, we should make the reselect it?
+					if (mh.HasValue == false)
+						PopPageAsync(true);
+
+					meemicHolder = mh.Value;
+                }
+
+            }
+        }
 
 
 
@@ -46,39 +71,37 @@ namespace MeemicMobileApp.ViewModels.Onboarding
             YesCommand = new Command(async () => await ExecuteYesCommand());
             NoCommand = new Command(async () => await ExecuteNoCommand());
 
-            var mh = AppSettings.GetBool("MeemicHolder");
-
-            // We dont have a value, we should make the reselect it?
-            if (mh.HasValue == false)
-                PopPageAsync(true);
-
-            meemicHolder = mh.Value;
         }
 
 
 
         private async Task ExecuteYesCommand() 
         {
-            var page = SelectPage(meemicHolder, true);
-
-            await PushPageAsync(page, true);
+            await AppSettings.Set("FoundationClub", true);
+            await SelectPage(meemicHolder, true);
         }
 
 
 
         private async Task ExecuteNoCommand() 
         {
-            var page = SelectPage(meemicHolder, false);
-
-            await PushPageAsync(page, true);
+            await AppSettings.Set("FoundationClub", false);
+            await SelectPage(meemicHolder, false);
         }
 
 
-        private Page SelectPage(bool meemicHolder, bool foundationClub)
+
+        private async Task SelectPage(bool mh, bool foundationClub)
         {
-            if (!meemicHolder && !foundationClub)
+            if (mh) 
             {
-                return new LearnMoreView();
+				await PushPageAsync(new MeemicAccountCenterQuestionView(), true);
+            } 
+            else if (foundationClub) 
+            {
+                Application.Current.MainPage = new LoginView();
+            } else {
+                await PushPageAsync(new LearnMoreView(), true);
             }
         }
 

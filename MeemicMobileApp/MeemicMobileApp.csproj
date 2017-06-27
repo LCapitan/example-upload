@@ -42,6 +42,9 @@
     <EmbeddedResource Include="Views\Onboarding\LearnMoreView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Onboarding\MeemicAccountCenterQuestionView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -72,6 +75,10 @@
       <DependentUpon>LearnMoreView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Onboarding\LoginViewModel.cs" />
+    <Compile Include="Views\Onboarding\MeemicAccountCenterQuestionView.xaml.cs">
+      <DependentUpon>MeemicAccountCenterQuestionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Onboarding\MeemicAccountCenterQuestionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

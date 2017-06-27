@@ -56,13 +56,15 @@ namespace MeemicMobileApp.DataProviders
 		public async Task Set(string key, bool value)
         {
             var record = realm.All<ApplicationSettings>().FirstOrDefault(x => x.Key.Equals(key, StringComparison.OrdinalIgnoreCase));
+            var transaction = realm.BeginWrite();
 
-            if (record == null)
-                record = new ApplicationSettings { Key = key };
-                
-            record.Value = value.ToString();
+			if (record == null)
+				record = new ApplicationSettings { Key = key };
 
-            await realm.WriteAsync((r) => r.Add(record, true));
+			record.Value = value.ToString();
+            realm.Add(record, true);
+
+            transaction.Commit();
         }
 
     }
