@@ -48,6 +48,9 @@
     <EmbeddedResource Include="Views\Shared\MeemicWebView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home\HomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -70,14 +73,12 @@
     <Compile Include="Models\ApplicationSettings.cs" />
     <Compile Include="DataProviders\IApplicationSettingsDataProvider.cs" />
     <Compile Include="DataProviders\ApplicationSettingsDataProvider.cs" />
-    <Compile Include="ViewModels\Login\LoginViewModel.cs" />
     <Compile Include="Views\Login\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Onboarding\LearnMoreView.xaml.cs">
       <DependentUpon>LearnMoreView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\Onboarding\LoginViewModel.cs" />
     <Compile Include="Views\Onboarding\MeemicAccountCenterQuestionView.xaml.cs">
       <DependentUpon>MeemicAccountCenterQuestionView.xaml</DependentUpon>
     </Compile>
@@ -86,6 +87,13 @@
       <DependentUpon>MeemicWebView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Shared\MeemicWebViewModel.cs" />
+    <Compile Include="Managers\Interfaces\ILoginManager.cs" />
+    <Compile Include="Managers\InMemoryLoginManager.cs" />
+    <Compile Include="Views\Home\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Home\HomeViewModel.cs" />
+    <Compile Include="ViewModels\Login\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -99,6 +107,10 @@
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Shared\" />
     <Folder Include="ViewModels\Shared\" />
+    <Folder Include="Managers\" />
+    <Folder Include="Managers\Interfaces\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="ViewModels\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

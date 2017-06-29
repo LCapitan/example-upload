@@ -76,6 +76,19 @@ namespace MeemicMobileApp.ViewModels.Base
 
 
 		/// <summary>
+		/// Displays an Alert on the current page
+		/// </summary>
+		/// <param name="title">Title to display</param>
+		/// <param name="message">Message to display</param>
+		/// <param name="cancel">Cancel button title</param>
+		protected async Task DisplayAlert(string title, string message, string cancel)
+		{
+			await Application.Current.MainPage.DisplayAlert(title, message, cancel);
+		}
+
+
+
+		/// <summary>
 		/// Displays a ActionSheet on the current page
 		/// </summary>
 		/// <returns>String of which button was clicked</returns>
@@ -87,6 +100,19 @@ namespace MeemicMobileApp.ViewModels.Base
         {
             return await Application.Current.MainPage.DisplayActionSheet(title, cancel, destruction, buttons);
         }
+
+
+
+        /// <summary>
+        /// Assign the MainPage of the current application
+        /// </summary>
+        /// <param name="page">Page to assign</param>
+        protected void SetMainPage(Page page)
+        {
+            Application.Current.MainPage = page;
+        }
+
+
 
     }
 }

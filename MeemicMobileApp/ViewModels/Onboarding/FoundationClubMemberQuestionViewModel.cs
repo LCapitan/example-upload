@@ -99,7 +99,8 @@ namespace MeemicMobileApp.ViewModels.Onboarding
             } 
             else if (foundationClub) 
             {
-                Application.Current.MainPage = new LoginView();
+                var lv = new LoginView();
+                SetMainPage(lv);
             } 
             else 
             {

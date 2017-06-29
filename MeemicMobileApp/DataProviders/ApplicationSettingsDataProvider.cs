@@ -10,22 +10,7 @@ namespace MeemicMobileApp.DataProviders
     /// </summary>
     public class ApplicationSettingsDataProvider : IApplicationSettingsDataProvider
     {
-
-        private readonly Realm realm;
-
-
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:MeemicMobileApp.DataProviders.ApplicationSettingsDataProvider"/> class.
-        /// </summary>
-        public ApplicationSettingsDataProvider()
-        {
-            realm = Realm.GetInstance();
-        }
-
-
-
+        
 		/// <summary>
 		/// Gets the value of the key - if none exists, null will be returned 
 		/// </summary>
@@ -33,6 +18,8 @@ namespace MeemicMobileApp.DataProviders
 		/// <param name="key">Key.</param>
 		public bool? GetBool(string key)
         {
+            var realm = Realm.GetInstance();
+
             var appSett = realm.All<ApplicationSettings>().FirstOrDefault(a => a.Key.Equals(key, StringComparison.OrdinalIgnoreCase));
 
             if (appSett == null)
@@ -53,6 +40,7 @@ namespace MeemicMobileApp.DataProviders
 		/// <param name="value">If set to <c>true</c> value.</param>
 		public void Set(string key, bool value)
         {
+            var realm = Realm.GetInstance();
             var record = realm.All<ApplicationSettings>().FirstOrDefault(x => x.Key.Equals(key, StringComparison.OrdinalIgnoreCase));
             var transaction = realm.BeginWrite();
 

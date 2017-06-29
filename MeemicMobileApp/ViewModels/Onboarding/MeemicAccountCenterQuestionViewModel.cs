@@ -55,7 +55,8 @@ namespace MeemicMobileApp.ViewModels.Onboarding
 
         private void RegisteredCommandExectute() 
         {
-            Application.Current.MainPage = new LoginView();
+            var lv = new LoginView();
+            SetMainPage(lv);
         }
 
 
@@ -69,7 +70,12 @@ namespace MeemicMobileApp.ViewModels.Onboarding
                 "Cancel"
             );
 
-            if(res) Application.Current.MainPage = new LoginView();
+            if (res == false)
+                return;
+
+            var lv = new LoginView();
+            SetMainPage(lv);
+
         }
 
 

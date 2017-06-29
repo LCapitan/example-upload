@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MeemicMobileApp.Views.Login.LoginView">
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.Login; assembly=MeemicMobileApp"
+    xmlns:managers="clr-namespace:MeemicMobileApp.Managers; assembly=MeemicMobileApp"
+    xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp"
+    x:Class="MeemicMobileApp.Views.Login.LoginView">
+
+    <ContentPage.Resources>
+         <ResourceDictionary>
+            <managers:InMemoryLoginManager x:Key="LoginManager" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewModels:LoginViewModel x:Key="LoginViewModel" LoginManager="{StaticResource LoginManager}" />
+    </ContentPage.BindingContext>
+    
 	<ContentPage.Content>
-        <Label Text="Login Page" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="150" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0"  Margin="5">
+                <BoxView Margin="10" BackgroundColor="Red" HeightRequest="100" />
+                <Entry Placeholder="Email Address" Text="{Binding Email}"/>
+                <Entry Placeholder="Password" Text="{Binding Password}"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0" Orientation="Horizontal">
+                        <Switch IsToggled="{Binding SaveEmail}"/>
+                        <Label Text="Save Email" />
+                        <BoxView BackgroundColor="Green" HeightRequest="10" WidthRequest="30" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1" Orientation="Horizontal">
+                        <Switch IsToggled="{Binding KeepMeLoggedIn}"/>
+                        <Label Text="Keep me loggedin?" />
+                        <BoxView BackgroundColor="Green" HeightRequest="10" WidthRequest="30" />
+                    </StackLayout>
+                </Grid>
+
+                <Button Text="Log In" Command="{Binding LoginCommand}" BorderWidth="1"/>
+                <Button Text="Log In Assistance" Command="{Binding LoginAssistCommand}" BorderWidth="1"/>
+                
+            </StackLayout>
+
+            
+            <StackLayout Grid.Row="1" BackgroundColor="Black">
+                <StackLayout  HorizontalOptions="Center" Orientation="Horizontal">
+                    <Button Text="Terms &amp; Conditions" TextColor="Blue"/>
+                    <Label Text="|" VerticalOptions="CenterAndExpand" TextColor="Blue"/>
+                    <Button Text="Privacy Policy"  TextColor="Blue"/>
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal" >
+                    <Button Text="Meemic Website" TextColor="Blue" />
+                    <Label Text="|" VerticalOptions="CenterAndExpand" TextColor="Blue"/>
+                    <Button Text="Foundation Club Website" TextColor="Blue"/>
+                </StackLayout>
+                
+                <StackLayout HorizontalOptions="Center">
+                    <Label HorizontalOptions="Center" 
+                            Text="2017 Copyright Meemic Insurance Company" 
+                            TextColor="White" />
+                    <Label HorizontalOptions="Center" 
+                            Text="All rights reserved."  
+                            TextColor="White"/>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
 	</ContentPage.Content>
 </ContentPage>
