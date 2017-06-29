@@ -39,7 +39,7 @@ namespace MeemicMobileApp.ViewModels.Onboarding
         {
             
             NotRegisteredCommand = new Command(async () => await NotRegisteredCommandExecute());
-            RegisteredCommand = new Command(RegisteredCommandExectute);
+            RegisteredCommand = new Command(async () => await RegisteredCommandExectute());
             NotSureCommand = new Command(async () => await NotSureCommandExecute());
 
         }
@@ -53,10 +53,10 @@ namespace MeemicMobileApp.ViewModels.Onboarding
 
 
 
-        private void RegisteredCommandExectute() 
+        private async Task RegisteredCommandExectute() 
         {
             var lv = new LoginView();
-            SetMainPage(lv);
+            await PushPageAsync(lv, true);
         }
 
 
@@ -74,8 +74,7 @@ namespace MeemicMobileApp.ViewModels.Onboarding
                 return;
 
             var lv = new LoginView();
-            SetMainPage(lv);
-
+            await PushPageAsync(lv, true);
         }
 
 

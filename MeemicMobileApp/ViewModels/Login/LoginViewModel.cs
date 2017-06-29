@@ -3,6 +3,7 @@ using System.Windows.Input;
 using MeemicMobileApp.Managers.Interfaces;
 using MeemicMobileApp.ViewModels.Base;
 using MeemicMobileApp.Views.Home;
+using MeemicMobileApp.Views.Login;
 using Xamarin.Forms;
 
 namespace MeemicMobileApp.ViewModels.Login
@@ -124,7 +125,7 @@ namespace MeemicMobileApp.ViewModels.Login
         public LoginViewModel()
         {
             LoginCommand = new Command(async () => await LoginCommandExecute(), CanLoginCommandExecute);
-            LoginAssistCommand = new Command(LoginAssistCommandExecute);
+            LoginAssistCommand = new Command(async () => await LoginAssistCommandExecute());
 
             OnPropertyChanged("LoginCommand");
 			OnPropertyChanged("LoginAssistCommand");
@@ -165,9 +166,9 @@ namespace MeemicMobileApp.ViewModels.Login
 
 
 
-        private void LoginAssistCommandExecute()
+        private async Task LoginAssistCommandExecute()
         {
-            
+            await PushPageAsync(new LoginAssistView(), true);
         }
 
     }

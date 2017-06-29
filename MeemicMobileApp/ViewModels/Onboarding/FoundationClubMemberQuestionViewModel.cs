@@ -100,7 +100,7 @@ namespace MeemicMobileApp.ViewModels.Onboarding
             else if (foundationClub) 
             {
                 var lv = new LoginView();
-                SetMainPage(lv);
+                await PushPageAsync(lv, true);
             } 
             else 
             {

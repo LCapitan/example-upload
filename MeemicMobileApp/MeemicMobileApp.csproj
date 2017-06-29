@@ -51,6 +51,9 @@
     <EmbeddedResource Include="Views\Home\HomeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login\LoginAssistView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -94,6 +97,10 @@
     </Compile>
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="ViewModels\Login\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Login\LoginAssistViewModel.cs" />
+    <Compile Include="Views\Login\LoginAssistView.xaml.cs">
+      <DependentUpon>LoginAssistView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

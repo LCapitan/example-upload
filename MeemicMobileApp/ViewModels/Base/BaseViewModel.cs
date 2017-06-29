@@ -13,12 +13,36 @@ namespace MeemicMobileApp.ViewModels.Base
         /// Push the page on top of the navagitation stack
         /// </summary>
         /// <param name="page">The page to display</param>
-        /// <param name="animate">If set to <c>true</c>, animate.</param>
-        /// <returns>A task</returns>
-        protected async Task PushPageAsync(Page page, bool animate = true)
+        protected async Task PushPageAsync(Page page)
         {
-            await Application.Current.MainPage.Navigation.PushAsync(page, animate);
+            await Application.Current.MainPage.Navigation.PushAsync(page);
         }
+
+
+
+		/// <summary>
+		/// Push the page on top of the navagitation stack
+		/// </summary>
+		/// <param name="page">The page to display</param>
+		/// <param name="animate">If set to <c>true</c>, animate.</param>
+		protected async Task PushPageAsync(Page page, bool animate)
+		{
+			await Application.Current.MainPage.Navigation.PushAsync(page);
+		}
+
+
+
+		///// <summary>
+		///// Push the page on top of the navagitation stack
+		///// </summary>
+		///// <param name="page">The page to display</param>
+		///// <param name="animate">If set to <c>true</c>, animate.</param>
+		///// <param name="showBar">If set to <c>true</c>, show the navigation bar.</param>
+		//protected async Task PushPageAsync(Page page, bool animate, bool showBar)
+        //{
+        //    await Application.Current.MainPage.Navigation.PushAsync(page, animate);
+        //    NavigationPage.SetHasNavigationBar(Application.Current.MainPage, showBar);
+        //}
 
 
 
