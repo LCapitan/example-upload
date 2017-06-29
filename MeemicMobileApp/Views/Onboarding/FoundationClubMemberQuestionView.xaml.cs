@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace MeemicMobileApp.Views.Onboarding
 {
@@ -13,5 +10,6 @@ namespace MeemicMobileApp.Views.Onboarding
 
             NavigationPage.SetBackButtonTitle(this, "");
         }
+
     }
 }

@@ -2,9 +2,65 @@
 <ContentPage 
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    x:Class="MeemicMobileApp.Views.Onboarding.LearnMoreView">
+    x:Class="MeemicMobileApp.Views.Onboarding.LearnMoreView"
+    BackgroundColor="Silver">
 
     <ContentPage.Content>
-        <Label Text="Learn More" />
+        <ScrollView>
+            <StackLayout>
+
+                <!--Meemic Policies Section-->
+                <StackLayout BackgroundColor="White" Margin="10,10,10,5">
+                    <Label Text="Meemic Policies" FontAttributes="Bold" Margin="20,5,0,5" />
+                    <Frame HasShadow="false" OutlineColor="Blue"  CornerRadius="0" Padding="15">
+                        <StackLayout>
+                            <BoxView Color="Green" 
+                                    HorizontalOptions="Center" 
+                                    WidthRequest="50" 
+                                    HeightRequest="50" />
+                            
+                            <Label Text="More About Meemic" FontSize="20" TextColor="Blue"
+                                    FontAttributes="Bold" HorizontalOptions="Center" />
+                            
+                            <Label Text="Copy here and here and here about learning more about Meemic Policies" 
+                                    HorizontalTextAlignment="Center"  HorizontalOptions="Center" 
+                                     TextColor="Blue" Margin="5,0,5,0" />
+
+                            <Button Text="Learn About Policies" BorderColor="Blue" BorderWidth="1" />
+                        </StackLayout>
+                    </Frame>                    
+                </StackLayout>
+
+                <!--Find Agent / Get a Quote-->
+                <StackLayout BackgroundColor="White" Margin="10,5,10,5">
+                    <Button Text="Find an Agent" />
+                    <Button Text="Get a Quote" />
+                </StackLayout>
+
+                 <!--Meemic Foundation Section-->
+                <StackLayout BackgroundColor="White" Margin="10,5,10,5">
+                    <Label Text="Meemic Foundation Club" FontAttributes="Bold" Margin="20,5,0,5" />
+                    <Frame HasShadow="false" OutlineColor="Orange"  CornerRadius="0" Padding="15">
+                        <StackLayout>
+                            <BoxView Color="Orange" 
+                                    HorizontalOptions="Center" 
+                                    WidthRequest="50" 
+                                    HeightRequest="50" />
+                            
+                            <Label Text="Apply for Grants" FontSize="20" TextColor="Orange"
+                                    FontAttributes="Bold" HorizontalOptions="Center" />
+                            
+                            <Label Text="The Meemic Foundation offers grants for a variety of school and classroom projects" 
+                                    HorizontalTextAlignment="Center"  HorizontalOptions="Center" 
+                                    TextColor="Orange" Margin="2,0,2,0" />
+
+                            <Button Text="Join Today" BorderColor="Green" TextColor="Green" BorderWidth="1" />
+                        </StackLayout>
+                    </Frame>                    
+                </StackLayout>
+                    
+                
+            </StackLayout>
+        </ScrollView>
 	</ContentPage.Content>
 </ContentPage>

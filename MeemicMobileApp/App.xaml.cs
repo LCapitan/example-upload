@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using MeemicMobileApp.Views.Onboarding;
+using Xamarin.Forms;
 
 namespace MeemicMobileApp
 {
@@ -14,7 +15,8 @@ namespace MeemicMobileApp
                 MainPage = new MeemicMobileAppPage();
             else
             {
-				var np = new NavigationPage(new Views.Onboarding.MeemicHolderQuestionView());
+                var np = new NavigationPage(new MeemicHolderQuestionView());
+
                 MainPage = np;      
             }
 
