@@ -32,6 +32,7 @@ namespace MeemicMobileApp.ViewModels.Login
                 {
                     email = value;
                     OnPropertyChanged();
+                    LoginCommand.ChangeCanExecute();
                 }
 
             }
@@ -51,6 +52,7 @@ namespace MeemicMobileApp.ViewModels.Login
                 {
                     password = value;
                     OnPropertyChanged();
+                    LoginCommand.ChangeCanExecute();
                 }
             }
         }
@@ -105,14 +107,14 @@ namespace MeemicMobileApp.ViewModels.Login
         /// <summary>
         /// Login Command
         /// </summary>
-        public ICommand LoginCommand { get; private set; }
+        public Command LoginCommand { get; private set; }
 
 
 
         /// <summary>
         /// Login Assistance Command
         /// </summary>
-        public ICommand LoginAssistCommand { get; private set; }
+        public Command LoginAssistCommand { get; private set; }
 
 
 
@@ -123,7 +125,11 @@ namespace MeemicMobileApp.ViewModels.Login
         {
             LoginCommand = new Command(async () => await LoginCommandExecute(), CanLoginCommandExecute);
             LoginAssistCommand = new Command(LoginAssistCommandExecute);
-        }
+
+            OnPropertyChanged("LoginCommand");
+			OnPropertyChanged("LoginAssistCommand");
+
+		}
 
 
 

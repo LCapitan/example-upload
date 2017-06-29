@@ -34,9 +34,13 @@ namespace MeemicMobileApp.Managers
         /// <param name="password">Password of the user</param>
         public bool Login(string email, string password)
         {
+            if (loginDatabase.ContainsKey(email) == false)
+                return false;
+
             var id = loginDatabase[email];
 
-            if (id == null) return false;
+            if (id == null) 
+                return false;
 
             return password.Equals(id, StringComparison.OrdinalIgnoreCase);
         }
