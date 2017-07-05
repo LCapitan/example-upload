@@ -38,10 +38,17 @@ namespace MeemicMobileApp.ViewModels.Shared
         }
 
 
+
+        /// <summary>
+        /// Navigation Back Command
+        /// </summary>
         public ICommand NavigationBackCommand { get; private set; }
 
 
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MeemicWebViewModel()
         {
             NavigationBackCommand = new Command(async () => await NavigationBackCommandExecute());

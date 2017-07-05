@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using MeemicMobileApp.ViewModels.Base;
 using MeemicMobileApp.Views.Shared;
@@ -28,6 +27,10 @@ namespace MeemicMobileApp.ViewModels.Login
                 if(showMeemicInstructions != value)
                 {
                     showMeemicInstructions = value;
+
+                    if (showMeemicInstructions)
+                        ShowFoundationInstructions = false;
+
                     OnPropertyChanged();
                 }
             }
@@ -43,9 +46,13 @@ namespace MeemicMobileApp.ViewModels.Login
             get { return showFoundationInstructions; }
             set 
             {
-                if(showMeemicInstructions != value)
+                if(showFoundationInstructions != value)
                 {
-                    showMeemicInstructions = value;
+                    showFoundationInstructions = value;
+
+                    if (showFoundationInstructions)
+                        ShowMeemicInstructions = false;
+
                     OnPropertyChanged();
                 }
             }
@@ -68,6 +75,7 @@ namespace MeemicMobileApp.ViewModels.Login
         public LoginAssistViewModel()
         {
             NavigateToWebPageCommand = new Command<string>(async (x) => await NavigateToWebPageCommandExecute(x));
+            ShowMeemicInstructions = true;
         }
 
 

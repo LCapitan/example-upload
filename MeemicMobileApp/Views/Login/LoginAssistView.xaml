@@ -19,10 +19,10 @@
                         <Label Text="I AM ALREADY REGISTERED" />
                         <Button Text="Reset Log In Password" 
                                 Command="{Binding NavigateToWebPageCommand}"
-                                CommandParameter="https://www.google.com"/>
+                                CommandParameter="https://member.meemic.com/reset-password"/>
                         <Button Text="Manage Log In Email and Password"
                                 Command="{Binding NavigateToWebPageCommand}"
-                                CommandParameter="https://www.theprimacy.com"/>
+                                CommandParameter="https://www.meemic.com/member-services.aspx"/>
                     </StackLayout>
                 </Frame>
 
@@ -43,23 +43,27 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Switch Grid.Column="0" />
+                    <Switch Grid.Column="0" IsToggled="{Binding ShowMeemicInstructions}" />
                     <Label Grid.Column="1" Text="Meemic Account"/>
 
-                    <Switch Grid.Column="2" />
+                    <Switch Grid.Column="2" IsToggled="{Binding ShowFoundationInstructions}"/>
                     <Label Grid.Column="3" Text="Foundation Club" />
                 </Grid>
 
                 <!--Meemic Account Instructions-->
-                <StackLayout>
+                <StackLayout IsVisible="{Binding ShowMeemicInstructions}">
                     <Frame HasShadow="False" CornerRadius="0">
                         <StackLayout>
                             <Label Text="1. First, you'll need a policy" />
                             <Button Text="Find an Agent" />
-                            <Button Text="Get a Quote" />
+                            <Button Text="Get a Quote" 
+                                    Command="{Binding NavigateToWebPageCommand}"
+                                    CommandParameter="https://quote.meemic.com"/>
 
                             <Label Text="2. Then, complete registration" />
-                            <Button Text="Create Log In Profile" />
+                            <Button Text="Create Log In Profile"
+                                    Command="{Binding NavigateToWebPageCommand}"
+                                    CommandParameter="https://member.meemic.com/log-in" />
                         </StackLayout>
                     </Frame>
 
@@ -75,11 +79,13 @@
 
 
                 <!--Foundation Club Instructions-->
-                <StackLayout>
+                <StackLayout IsVisible="{Binding ShowFoundationInstructions}">
                     <Frame>
                         <StackLayout>
                             <Label Text="Register by applying for a grant" />
-                            <Button Text="Register for Foundation Club" />
+                            <Button Text="Register for Foundation Club" 
+                                    Command="{Binding NavigateToWebPageCommnd}"
+                                    CommandParameter="https://member.meemic.com/foundation-log-in"/>
                         </StackLayout>
                     </Frame>
 
