@@ -1,4 +1,7 @@
-﻿using MeemicMobileApp.ViewModels.Base;
+﻿using System.Threading.Tasks;
+using System.Windows.Input;
+using MeemicMobileApp.ViewModels.Base;
+using Xamarin.Forms;
 
 namespace MeemicMobileApp.ViewModels.Shared
 {
@@ -9,7 +12,7 @@ namespace MeemicMobileApp.ViewModels.Shared
     /// </summary>
     public class MeemicWebViewModel : BaseViewModel
     {
-        
+
         private string websiteUrl;
 
 
@@ -20,18 +23,35 @@ namespace MeemicMobileApp.ViewModels.Shared
         /// <value>The website URL.</value>
         public string WebsiteURL
         {
-            get 
+            get
             {
-                return websiteUrl;  
+                return websiteUrl;
             }
-            set 
+            set
             {
-                if(value != websiteUrl)
+                if (value != websiteUrl)
                 {
-                    value = websiteUrl;
-                    OnPropertyChanged();
-                }    
+                    websiteUrl = value;
+                    OnPropertyChanged("WebsiteURL");
+                }
             }
+        }
+
+
+        public ICommand NavigationBackCommand { get; private set; }
+
+
+
+        public MeemicWebViewModel()
+        {
+            NavigationBackCommand = new Command(async () => await NavigationBackCommandExecute());
+        }
+
+
+
+        private async Task NavigationBackCommandExecute()
+        {
+            await PopPageAsync();
         }
     }
 }

@@ -1,5 +1,99 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MeemicMobileApp.Views.Login.LoginAssistView">
-	<ContentPage.Content>
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="MeemicMobileApp.Views.Login.LoginAssistView"
+    xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.Login; assembly=MeemicMobileApp"
+    BackgroundColor="#FFDEDEDE">
+
+    <ContentPage.BindingContext>
+        <viewModels:LoginAssistViewModel x:Key="LoginAssistViewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="5">
+                <!--Already Registered-->
+                <Frame HasShadow="False" CornerRadius="0">
+                    <StackLayout>
+                        <Label Text="I AM ALREADY REGISTERED" />
+                        <Button Text="Reset Log In Password" 
+                                Command="{Binding NavigateToWebPageCommand}"
+                                CommandParameter="https://www.google.com"/>
+                        <Button Text="Manage Log In Email and Password"
+                                Command="{Binding NavigateToWebPageCommand}"
+                                CommandParameter="https://www.theprimacy.com"/>
+                    </StackLayout>
+                </Frame>
+
+                <!--Ways to register-->
+                <Frame HasShadow="False" CornerRadius="0">
+                    <StackLayout>
+                        <Label Text="Ways to register" />
+                        <Label Text="You can log in to this app with either your Meemic Policy OR Foundation Club Email and Password"  />
+                    </StackLayout>    
+                </Frame>
+
+                <!--Radio Buttons-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Switch Grid.Column="0" />
+                    <Label Grid.Column="1" Text="Meemic Account"/>
+
+                    <Switch Grid.Column="2" />
+                    <Label Grid.Column="3" Text="Foundation Club" />
+                </Grid>
+
+                <!--Meemic Account Instructions-->
+                <StackLayout>
+                    <Frame HasShadow="False" CornerRadius="0">
+                        <StackLayout>
+                            <Label Text="1. First, you'll need a policy" />
+                            <Button Text="Find an Agent" />
+                            <Button Text="Get a Quote" />
+
+                            <Label Text="2. Then, complete registration" />
+                            <Button Text="Create Log In Profile" />
+                        </StackLayout>
+                    </Frame>
+
+                    <!--Contact Us Meemic Account-->
+                    <Frame HasShadow="False" CornerRadius="0">
+                        <StackLayout>
+                            <Button Text="Call Customer Service" />
+                            <Label Text="Call our Customer Service enter 24/7 with any questions" />
+                        </StackLayout>
+                    </Frame>
+                    
+                </StackLayout>
+
+
+                <!--Foundation Club Instructions-->
+                <StackLayout>
+                    <Frame>
+                        <StackLayout>
+                            <Label Text="Register by applying for a grant" />
+                            <Button Text="Register for Foundation Club" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame>
+                        <StackLayout>
+                            <Button Text="Call Customer Service" />
+                            <Label Text="Monday-Friday: 7:30 a.m. - 7:00 p.m." />
+                            <Label Text="Saturday: 9:30 a.m. - 4:00 p.m." />
+                            <Label Text="Sunday: Closed" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                
+            </StackLayout>
+        </ScrollView>
 	</ContentPage.Content>
 </ContentPage>

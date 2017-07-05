@@ -48,7 +48,7 @@ namespace MeemicMobileApp.ViewModels.Onboarding
 
         private async Task NotRegisteredCommandExecute() 
         {
-            await PushPageAsync(new MeemicWebView("http://www.google.com"));
+            await PushPageAsync(new MeemicWebView("https://www.google.com"));
         }
 
 

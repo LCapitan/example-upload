@@ -8,10 +8,34 @@
         <viewModels:MeemicWebViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <WebView>
-            <WebView.Source>
-                <UrlWebViewSource Url="{Binding WebsiteURL}" />
-            </WebView.Source>
-        </WebView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0" BackgroundColor="Blue" Padding="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Button Grid.Column="0" Text="&lt;" TextColor="White" FontSize="20" Command="{Binding NavigationBackCommand}"/>
+
+                <Frame Grid.Column="1" HasShadow="False" BackgroundColor="Navy">
+                    <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="Binding WebsiteURL" TextColor="White" FontSize="15" />
+                        <Label Grid.Column="1" Text="@" />
+                    </Grid>
+                </Frame>
+            </Grid>
+
+            <WebView Grid.Row="1" x:Name="webView" Source="{Binding WebsiteURL}" VerticalOptions="FillAndExpand" />
+        </Grid>
 	</ContentPage.Content>
 </ContentPage>

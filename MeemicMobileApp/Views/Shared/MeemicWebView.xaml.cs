@@ -9,8 +9,25 @@ namespace MeemicMobileApp.Views.Shared
     /// </summary>
     public partial class MeemicWebView : ContentPage
     {
+        
+        /// <summary>
+        /// This is here to satisfy the XAML previewer - this could be removed in release
+        /// </summary>
+        public MeemicWebView()
+        {
+			InitializeComponent();
+		}
+
+
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="url">The URL to navigate to</param>
         public MeemicWebView(string url)
         {
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
 
             var vm = BindingContext as MeemicWebViewModel;
@@ -20,5 +37,6 @@ namespace MeemicMobileApp.Views.Shared
 
             vm.WebsiteURL = url;
         }
+
     }
 }
