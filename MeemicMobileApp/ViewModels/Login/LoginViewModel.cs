@@ -144,7 +144,7 @@ namespace MeemicMobileApp.ViewModels.Login
                 return;
             }
 
-            SetMainPage(new HomeView());
+            SetMainPage(new NavigationPage(new HomeView()));
 
         }
 

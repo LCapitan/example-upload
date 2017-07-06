@@ -6,7 +6,10 @@ namespace MeemicMobileApp.Views.Onboarding
     {
         public MeemicAccountCenterQuestionView()
         {
-            InitializeComponent();
+			if (Application.Current.MainPage is NavigationPage np)
+				np.BarBackgroundColor = BackgroundColor;
+
+			InitializeComponent();
 
             NavigationPage.SetBackButtonTitle(this, "");
         }

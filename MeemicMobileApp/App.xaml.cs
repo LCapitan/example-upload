@@ -15,7 +15,12 @@ namespace MeemicMobileApp
                 MainPage = new MeemicMobileAppPage();
             else
             {
-                var np = new NavigationPage(new MeemicHolderQuestionView());
+                var fp = new MeemicHolderQuestionView();
+
+                var np = new NavigationPage(fp)
+                {
+                    BarBackgroundColor = fp.BackgroundColor
+                };
 
                 MainPage = np;      
             }

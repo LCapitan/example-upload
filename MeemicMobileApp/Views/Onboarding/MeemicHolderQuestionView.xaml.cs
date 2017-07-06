@@ -6,6 +6,7 @@ namespace MeemicMobileApp.Views.Onboarding
     {
         public MeemicHolderQuestionView()
         {
+
             InitializeComponent();
 
             NavigationPage.SetBackButtonTitle(this, "");

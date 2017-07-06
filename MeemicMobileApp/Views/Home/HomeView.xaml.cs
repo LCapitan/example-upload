@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace MeemicMobileApp.Views.Home
 {
@@ -9,6 +6,8 @@ namespace MeemicMobileApp.Views.Home
     {
         public HomeView()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
         }
     }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="MeemicMobileApp.Views.Shared.DevelopmentPlaceholderView">
+	<ContentPage.Content>
+        <Label x:Name="lblName" FontSize="40" VerticalTextAlignment="Center" 
+                HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand" Text="Test" />
+	</ContentPage.Content>
+</ContentPage>
