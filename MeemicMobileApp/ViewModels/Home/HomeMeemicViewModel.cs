@@ -65,6 +65,13 @@ namespace MeemicMobileApp.ViewModels.Home
 
 
         /// <summary>
+        /// About The Meemic Story Command
+        /// </summary>
+        public ICommand AboutTheMeemicStoryCommand { get; private set; }
+
+
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public HomeMeemicViewModel()
@@ -76,6 +83,7 @@ namespace MeemicMobileApp.ViewModels.Home
             RoadsideAccidentAssistanceCommand = new Command(async () => await RoadsideAccidentAssistanceCommandExecute());
             MeemicContactCommand = new Command(async () => await MeemicContactCommandExecute());
             AgentInfoCommand = new Command(async () => await AgentInfoCommandExecute());
+            AboutTheMeemicStoryCommand = new Command(async () => await AboutTheMeemicStoryCommandExecute());
         }
 
 
@@ -127,5 +135,11 @@ namespace MeemicMobileApp.ViewModels.Home
             await PushPageAsync(new DevelopmentPlaceholderView("Agent Info"));
         }
 
+
+
+        private async Task AboutTheMeemicStoryCommandExecute() 
+        {
+            await PushPageAsync(new DevelopmentPlaceholderView("About Meemic"));
+        }
 	}
 }

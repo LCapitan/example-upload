@@ -52,30 +52,30 @@
                     <BoxView BackgroundColor="#FF0053A0" Grid.Column="1" Grid.Row="0"/>
                     <Image Grid.Column="1" Grid.Row="0" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit"/>
                     <Label Grid.Column="1" Grid.Row="0" Margin="15,0,0,0" TextColor="White" FontSize="13" VerticalTextAlignment="Center" Text="Billing"/>
-                    <Button Grid.Column="1" Grid.Row="0" />
+                    <Button Grid.Column="1" Grid.Row="0" Command="{Binding MeemicViewModel.BillingCommand}"/>
 
                     <BoxView BackgroundColor="#FF0053A0" Grid.Column="0" Grid.Row="1"/>
                     <Image Grid.Column="0" Grid.Row="1" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit"/>
                     <Label Grid.Column="0" Grid.Row="1" Margin="15,0,0,0" TextColor="White" FontSize="13" VerticalTextAlignment="Center" Text="Claims"/>
-                    <Button Grid.Column="0" Grid.Row="1" />
+                    <Button Grid.Column="0" Grid.Row="1" Command="{Binding MeemicViewModel.ClaimsCommand}" />
 
                     <BoxView BackgroundColor="#FF0053A0" Grid.Column="1" Grid.Row="1"/>
                     <Image Grid.Column="1" Grid.Row="1" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit"/>
                     <Label Grid.Column="1" Grid.Row="1" Margin="15,0,0,0" TextColor="White" FontSize="13" VerticalTextAlignment="Center" Text="Auto ID Cards"/>
-                    <Button Grid.Column="1" Grid.Row="1"  />
+                    <Button Grid.Column="1" Grid.Row="1"  Command="{Binding MeemicViewModel.AutoIDCardsCommand}" />
 
                     <BoxView BackgroundColor="#FF0053A0" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" />
                     <Image Grid.Column="1" Grid.Row="2" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit"/>
                     <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="15,0,0,0" TextColor="White" FontSize="13" VerticalTextAlignment="Center" Text="Roadside &amp; Accident Assistance"/>
-                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" />
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Command="{Binding MeemicViewModel.RoadsideAccidentAssistanceCommand}" />
 
                     <BoxView  BackgroundColor="#DEFFFFFF" Grid.Column="0" Grid.Row="3" />
                     <Label Grid.Column="0" Grid.Row="3" Margin="15,0,0,0" FontSize="13" VerticalTextAlignment="Center" Text="24/7&#x0a;Contact" TextColor="#FF0053A0" />
-                    <Button Grid.Column="0" Grid.Row="3"/>
+                    <Button Grid.Column="0" Grid.Row="3" Command="{Binding MeemicViewModel.MeemicContactCommand}"/>
 
                     <BoxView  BackgroundColor="#DEFFFFFF" Grid.Column="1" Grid.Row="3"/>
                     <Label Grid.Column="1" Grid.Row="3" Margin="15,0,0,0" TextColor="#FF0053A0" FontSize="13" VerticalTextAlignment="Center" Text="Agent&#x0a;Info"/>
-                    <Button Grid.Column="1" Grid.Row="3" />
+                    <Button Grid.Column="1" Grid.Row="3" Command="{Binding MeemicViewModel.AgentInfoCommand}"/>
                     
                 </Grid>
 
@@ -126,7 +126,7 @@
                     <BoxView BackgroundColor="#FF0053A0" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" />
                     <Image Grid.Column="1" Grid.Row="0" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit"/>
                     <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="15,0,0,0" TextColor="White" FontSize="13" VerticalTextAlignment="Center" Text="About The Meemic Story"/>
-                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" />
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Command="{Binding MeemicViewModel.AboutTheMeemicStoryCommand}"/>
                 </Grid>
 
                 <!--About Foundation Club-->
