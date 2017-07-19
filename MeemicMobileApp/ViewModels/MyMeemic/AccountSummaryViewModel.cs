@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using MeemicMobileApp.ViewModels.Base;
+using Xamarin.Forms;
 
 namespace MeemicMobileApp.ViewModels.MyMeemic
 {
@@ -17,26 +20,11 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
         public ObservableCollection<PolicyGroup> Policies { get; private set; }
 
 
+
         /// <summary>
-        /// Gets or sets the selected policy.
-        /// 
-        /// This is a work around since there is no command for tap on an item
+        /// Gets the policy selected command.
         /// </summary>
-        public Policy SelectedPolicy
-        {
-            get { return null; }
-            set 
-            {
-                if (value == null)
-                    return;
-
-
-                DisplayAlert(value.Type.ToString(), value.CurrentDate, value.Id, "CANCEL").Wait();
-
-                OnPropertyChanged();
-            }
-            
-        }
+        public ICommand PolicySelectedCommand { get; private set; }
 
 
 
@@ -47,7 +35,17 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
         {
             Policies = new ObservableCollection<PolicyGroup>(GeneratePolicies());
             OnPropertyChanged("Policies");
+
+            PolicySelectedCommand = new Command<Policy>(async (p) => await PolicySelectedCommandExecute(p));
         }
+
+
+
+        private async Task PolicySelectedCommandExecute(Policy policy)
+        {
+            await DisplayAlert(policy.Type.ToString(), policy.CurrentDate, policy.Id, "CANCEL");
+        }
+
 
 
 

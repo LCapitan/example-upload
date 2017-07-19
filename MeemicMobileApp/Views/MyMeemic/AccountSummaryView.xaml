@@ -5,11 +5,13 @@
     xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.MyMeemic; assembly=MeemicMobileApp"
     xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp"
     xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
+    xmlns:behaviors="clr-namespace:MeemicMobileApp.Behaviors; assembly=MeemicMobileApp"
     xmlns:converters="clr-namespace:MeemicMobileApp.Converters; assembly=MeemicMobileApp"
     x:Class="MeemicMobileApp.Views.MyMeemic.AccountSummaryView" BackgroundColor="#FFEEEEEE">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:InvertBooleanConverter x:Key="invertBoolConverter" />
+            <converters:SelectedItemEventArgsToSelectedItemConverter x:Key="selectedItemConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.BindingContext>
@@ -50,8 +52,12 @@
                                 HasUnevenRows="True"
                                 IsGroupingEnabled="true" 
                                 GroupDisplayBinding="{Binding GroupBy}"
-                                SelectedItem="{Binding SelectedPolicy}"
                                 Margin="10,0,10,0">
+                        <ListView.Behaviors>
+                            <behaviors:ListViewSelectedItemCommandBehavior 
+                                    Command="{Binding PolicySelectedCommand}"
+                                    Converter="{StaticResource selectedItemConverter}" />
+                        </ListView.Behaviors>
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
