@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.Onboarding; assembly=MeemicMobileApp"
     xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp"
+    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
     x:Class="MeemicMobileApp.Views.Onboarding.MeemicAccountCenterQuestionView">
     <ContentPage.BindingContext>
         <viewModels:MeemicAccountCenterQuestionViewModel />
@@ -11,6 +12,9 @@
 
     <ContentPage.Content>
         <StackLayout>
+            <AbsoluteLayout>
+                <controls:NavigationHeaderControl AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" NavigationMode="BackButton" HeaderText=" " />
+            </AbsoluteLayout>
             <Label Text="Have you already registered for the Meemic Account Center?" />
             <Button Text="No, I haven't registered yet" Command="{Binding NotRegisteredCommand}"/>
             <Button Text="Yes, I'm registered" Command="{Binding RegisteredCommand}"/>

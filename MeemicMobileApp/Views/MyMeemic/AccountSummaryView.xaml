@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.MyMeemic; assembly=MeemicMobileApp"
+    xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp"
+    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
+    xmlns:converters="clr-namespace:MeemicMobileApp.Converters; assembly=MeemicMobileApp"
+    x:Class="MeemicMobileApp.Views.MyMeemic.AccountSummaryView" BackgroundColor="#FFEEEEEE">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InvertBooleanConverter x:Key="invertBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewModels:AccountSummaryViewModel />
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+       <StackLayout>
+            <AbsoluteLayout>
+                <controls:NavigationHeaderControl 
+                    AbsoluteLayout.LayoutFlags="All" 
+                    AbsoluteLayout.LayoutBounds="1,1,1,1" 
+                    NavigationMode="MenuButton" HeaderText="My Meemic Account Summary" />
+            </AbsoluteLayout>
+
+            <ScrollView>
+                <StackLayout>
+                    <Frame 
+                        BackgroundColor="White"
+                        CornerRadius="0"
+                        Margin="10"
+                        HasShadow="False">
+                        <StackLayout>
+                            <Label Text="Your account summary for:" FontSize="15"/>
+                            <Label Text="(1)Auto (1)Home (1)Board as of 1/12/2016" FontSize="15"/>
+                            <Grid ColumnSpacing="0" Margin="0,-10,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="Don't see all the policies listed?" Grid.Column="0" FontSize="15" VerticalTextAlignment="Center"/>
+                                <Button Text="Add a Policy" TextColor="Green" Grid.Column="1" />
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+
+                    <ListView ItemsSource="{Binding Policies}" SeparatorVisibility="None"
+                                HasUnevenRows="True"
+                                IsGroupingEnabled="true" 
+                                GroupDisplayBinding="{Binding GroupBy}"
+                                SelectedItem="{Binding SelectedPolicy}"
+                                Margin="10,0,10,0">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid BackgroundColor="Blue" Padding="2"> 
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="6*" />
+                                            <ColumnDefinition Width="2*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="1*"/>
+                                            <RowDefinition Height="1*"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center"
+                                            Text="{Binding Id}" TextColor="White" Margin="10,0,0,0" FontSize="16"/>
+
+                                        <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"
+                                            Text="{Binding CurrentDate}" TextColor="White" Margin="10,0,0,0"  FontSize="16" />
+
+                                        <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit" IsVisible="{Binding IsPastDue,Converter={StaticResource invertBoolConverter}}"/>
+
+                                        <Frame HasShadow="False" Padding="0" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="Red" CornerRadius="10" Margin="5,12,5,12" IsVisible="{Binding IsPastDue}">
+                                            <Label Text="PAST DUE" TextColor="White" FontSize="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" />
+                                        </Frame>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <ViewCell Height="70">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="1*" />
+                                            <RowDefinition Height="3*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+
+                                        <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#FFEEEEEE" />
+
+                                        
+                                        <Label Grid.Row="1" Grid.Column="0"
+                                            Margin="10,0,0,0" FontAttributes="Bold"
+                                            VerticalTextAlignment="Center"
+                                            Text="{Binding NameAndCount}" />
+                                        
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.GroupHeaderTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

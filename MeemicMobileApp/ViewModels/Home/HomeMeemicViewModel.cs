@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using MeemicMobileApp.ViewModels.Base;
+using MeemicMobileApp.Views.MyMeemic;
 using MeemicMobileApp.Views.Shared;
 using Xamarin.Forms;
 
@@ -76,7 +77,7 @@ namespace MeemicMobileApp.ViewModels.Home
         /// </summary>
         public HomeMeemicViewModel()
         {
-            MyPoliciesCommand = new Command(async () => await MyPoliciesCommandExecute());
+            MyPoliciesCommand = new Command(MyPoliciesCommandExecute);
             BillingCommand = new Command(async () => await BillingCommandExecute());
             ClaimsCommand = new Command(async () => await ClaimsCommandExecute());
             AutoIDCardsCommand = new Command(async () => await AutoIDCardsCommandExecute());
@@ -88,9 +89,9 @@ namespace MeemicMobileApp.ViewModels.Home
 
 
 
-        private async Task MyPoliciesCommandExecute() 
+        private void MyPoliciesCommandExecute() 
         {
-            await PushPageAsync(new DevelopmentPlaceholderView("My Policy"));
+            SetMainPage(new AccountContainerView());
         }
 
 

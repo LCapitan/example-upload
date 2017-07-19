@@ -7,9 +7,8 @@ namespace MeemicMobileApp.Views.Onboarding
         public MeemicHolderQuestionView()
         {
 
+			NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-
-            NavigationPage.SetBackButtonTitle(this, "");
         }
 
     }

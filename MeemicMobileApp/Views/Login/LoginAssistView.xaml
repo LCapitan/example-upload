@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MeemicMobileApp.Views.Login.LoginAssistView"
     xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.Login; assembly=MeemicMobileApp"
+    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
     BackgroundColor="#FFDEDEDE">
 
     <ContentPage.BindingContext>
@@ -11,7 +12,20 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <ScrollView>
+        <StackLayout>
+          <AbsoluteLayout>
+                <controls:NavigationHeaderControl 
+                        AbsoluteLayout.LayoutFlags="All" 
+                        AbsoluteLayout.LayoutBounds="1,1,1,1" 
+                        NavigationMode="BackButton" 
+                        HeaderText="Login Assist"
+                        BackgroundColor="Blue" 
+                        HeaderTextColor="White"
+                        ButtonTextColor="White"/>
+                
+            </AbsoluteLayout>
+
+            <ScrollView>
             <StackLayout Padding="5">
                 <!--Already Registered-->
                 <Frame HasShadow="False" CornerRadius="0">
@@ -101,5 +115,7 @@
                 
             </StackLayout>
         </ScrollView>
+        </StackLayout>
+
 	</ContentPage.Content>
 </ContentPage>

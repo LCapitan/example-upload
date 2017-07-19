@@ -3,12 +3,15 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="MeemicMobileApp.Views.Onboarding.LearnMoreView"
+    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
     BackgroundColor="Silver">
 
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-
+            <AbsoluteLayout>
+                <controls:NavigationHeaderControl AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" NavigationMode="BackButton" HeaderText="Learn More" BackgroundColor="Green"/>
+            </AbsoluteLayout>
                 <!--Meemic Policies Section-->
                 <StackLayout BackgroundColor="White" Margin="10,10,10,5">
                     <Label Text="Meemic Policies" FontAttributes="Bold" Margin="20,5,0,5" />

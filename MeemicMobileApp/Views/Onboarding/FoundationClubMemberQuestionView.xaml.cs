@@ -6,12 +6,9 @@ namespace MeemicMobileApp.Views.Onboarding
     {
         public FoundationClubMemberQuestionView()
         {
-			if (Application.Current.MainPage is NavigationPage np)
-				np.BarBackgroundColor = BackgroundColor;
+			NavigationPage.SetHasNavigationBar(this, false);
 
-            InitializeComponent();
-
-            NavigationPage.SetBackButtonTitle(this, "");
+			InitializeComponent();
         }
 
     }

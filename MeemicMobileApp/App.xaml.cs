@@ -17,13 +17,12 @@ namespace MeemicMobileApp
             {
                 var fp = new MeemicHolderQuestionView();
 
-                var np = new NavigationPage(fp)
-                {
-                    BarBackgroundColor = fp.BackgroundColor
-                };
+                var np = new NavigationPage(fp);
 
                 MainPage = np;      
             }
+
+            // MainPage = new Views.Shared.DevelopmentSandboxView();
 
         }
 

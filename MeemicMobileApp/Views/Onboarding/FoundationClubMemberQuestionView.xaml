@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.Onboarding; assembly=MeemicMobileApp"
     xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp"
+    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
     x:Class="MeemicMobileApp.Views.Onboarding.FoundationClubMemberQuestionView"
     BackgroundColor="#FFEE7C1D">
     <ContentPage.Resources>
@@ -16,6 +17,9 @@
     </ContentPage.BindingContext>
 	<ContentPage.Content>
         <StackLayout>
+            <AbsoluteLayout>
+                <controls:NavigationHeaderControl AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" NavigationMode="BackButton" HeaderText=" " />
+            </AbsoluteLayout>
             <Label Text="Got it." />
             <Label Text="Ae you a Foundation Club Member?" />
             <Button Text="Yes" Command="{Binding YesCommand}" />

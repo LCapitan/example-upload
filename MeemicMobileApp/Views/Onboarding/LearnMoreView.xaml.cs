@@ -9,7 +9,9 @@ namespace MeemicMobileApp.Views.Onboarding
     {
         public LearnMoreView()
         {
-            InitializeComponent();
+			NavigationPage.SetHasNavigationBar(this, false);
+
+			InitializeComponent();
         }
     }
 }

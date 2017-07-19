@@ -15,7 +15,9 @@ namespace MeemicMobileApp.Views.Shared
         /// </summary>
         public MeemicWebView()
         {
-			InitializeComponent();
+			NavigationPage.SetHasNavigationBar(this, false);
+            
+            InitializeComponent();
 		}
 
 
@@ -36,6 +38,7 @@ namespace MeemicMobileApp.Views.Shared
                 throw new NullReferenceException(nameof(BindingContext));
 
             vm.WebsiteURL = url;
+
         }
 
     }

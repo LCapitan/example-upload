@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.Onboarding; assembly=MeemicMobileApp"
     xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp"
+    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
     x:Class="MeemicMobileApp.Views.Onboarding.MeemicHolderQuestionView"
     BackgroundColor="#FF0053A0">
     <ContentPage.Resources>
@@ -16,6 +17,13 @@
     </ContentPage.BindingContext>
 	<ContentPage.Content>
         <StackLayout>
+            <AbsoluteLayout>
+                <controls:NavigationHeaderControl 
+                        AbsoluteLayout.LayoutFlags="All" 
+                        AbsoluteLayout.LayoutBounds="1,1,1,1" 
+                        NavigationMode="None" />
+            </AbsoluteLayout>
+
             <Label Text="Hello." />
             <Label Text="Ae you a Meemic Policy Holder?" />
             <Button Text="Yes" Command="{Binding YesCommand}" />

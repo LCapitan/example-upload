@@ -9,8 +9,8 @@ namespace MeemicMobileApp.Views.Login
     {
         public LoginView()
         {
-            InitializeComponent();
-			NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
+			InitializeComponent();
         }
 
         protected override void OnAppearing()

@@ -6,7 +6,9 @@ namespace MeemicMobileApp
     {
         public MeemicMobileAppPage()
         {
-            InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
+			InitializeComponent();
         }
+
     }
 }

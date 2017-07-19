@@ -94,26 +94,26 @@
                     <BoxView Grid.Column="0" Grid.Row="0" BackgroundColor="#FFEE7C1D" />
                     <Image Grid.Column="0" Grid.Row="0" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit"/>
                     <Label Grid.Column="0" Grid.Row="0" Margin="15,0,0,0" TextColor="White" FontSize="13" VerticalTextAlignment="Center" Text="My Grant&#x0a;Applications"/>
-                    <Button Grid.Column="0" Grid.Row="0"/>
+                    <Button Grid.Column="0" Grid.Row="0" Command="{Binding FoundationViewModel.MyGrantApplicationsCommand}"/>
 
                     <BoxView Grid.Column="1" Grid.Row="0" BackgroundColor="#FFEE7C1D" />
                     <Image Grid.Column="1" Grid.Row="0" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit"/>
                     <Label Grid.Column="1" Grid.Row="0" Margin="15,0,0,0" TextColor="White" FontSize="13" VerticalTextAlignment="Center" Text="Apply for&#x0a;a Grant"/>
-                    <Button Grid.Column="1" Grid.Row="0" />
+                    <Button Grid.Column="1" Grid.Row="0" Command="{Binding FoundationViewModel.ApplyForAGrantCommand}"/>
 
                     <BoxView Grid.Column="0" Grid.Row="1" BackgroundColor="#FFEE7C1D" />
                     <Image Grid.Column="0" Grid.Row="1" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit"/>
                     <Label Grid.Column="0" Grid.Row="1" Margin="15,0,0,0" TextColor="White" FontSize="13" VerticalTextAlignment="Center" Text="Workshops &#x0a;&amp; Events"/>
-                    <Button Grid.Column="0" Grid.Row="1" />
+                    <Button Grid.Column="0" Grid.Row="1" Command="{Binding FoundationViewModel.WorkshopsAndEventsCommand}"/>
 
                     <BoxView Grid.Column="1" Grid.Row="1" BackgroundColor="#FFEE7C1D" />
                     <Image Grid.Column="1" Grid.Row="1" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit"/>
                     <Label Grid.Column="1" Grid.Row="1" Margin="15,0,0,0" TextColor="White" FontSize="13" VerticalTextAlignment="Center" Text="Discounts &#x0a;&amp; Benefits"/>
-                    <Button Grid.Column="1" Grid.Row="1" />
+                    <Button Grid.Column="1" Grid.Row="1" Command="{Binding FoundationViewModel.DiscountsAndBenefitsCommand}"/>
 
                     <BoxView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"  BackgroundColor="#DEFFFFFF"/>
                     <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="15,0,0,0" TextColor="#FFEE7C1D" FontSize="13" VerticalTextAlignment="Center" Text="Contact Foundation Club"/>
-                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" />
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Command="{Binding FoundationViewModel.ContactFoundationClubCommand}"/>
                 </Grid> 
 
                 <!--About Meemic Story-->
@@ -139,7 +139,7 @@
                     <BoxView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" BackgroundColor="#FFEE7C1D"/>
                     <Image Grid.Column="1" Grid.Row="0" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit"/>
                     <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Margin="15,0,0,0" TextColor="White" FontSize="13" VerticalTextAlignment="Center" Text="About Foundation Club"/>
-                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" />
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Command="{Binding FoundationViewModel.MyGrantApplicationsCommand}"/>
                     
                 </Grid>
 

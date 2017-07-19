@@ -18,18 +18,18 @@ namespace MeemicMobileApp.ViewModels.Login
         private bool saveEmail;
         private bool keepMeLoggedIn;
 
-		
+
 
 
         /// <summary>
         /// Gets or sets the email.
         /// </summary>
-        public string Email 
+        public string Email
         {
             get { return email; }
-            set 
+            set
             {
-                if(value != email) 
+                if (value != email)
                 {
                     email = value;
                     OnPropertyChanged();
@@ -44,12 +44,12 @@ namespace MeemicMobileApp.ViewModels.Login
         /// <summary>
         /// Gets or sets the password.
         /// </summary>
-        public string Password 
+        public string Password
         {
             get { return password; }
-            set 
+            set
             {
-                if(value != password) 
+                if (value != password)
                 {
                     password = value;
                     OnPropertyChanged();
@@ -66,9 +66,9 @@ namespace MeemicMobileApp.ViewModels.Login
         public bool SaveEmail
         {
             get { return saveEmail; }
-            set 
+            set
             {
-                if(value != saveEmail)
+                if (value != saveEmail)
                 {
                     saveEmail = value;
                     OnPropertyChanged();
@@ -85,9 +85,9 @@ namespace MeemicMobileApp.ViewModels.Login
         public bool KeepMeLoggedIn
         {
             get { return keepMeLoggedIn; }
-            set 
+            set
             {
-                if(value != keepMeLoggedIn)
+                if (value != keepMeLoggedIn)
                 {
                     keepMeLoggedIn = value;
                     OnPropertyChanged();
@@ -98,10 +98,10 @@ namespace MeemicMobileApp.ViewModels.Login
 
 
 
-		/// <summary>
-		/// Login manager used for loggin in
-		/// </summary>
-		public ILoginManager LoginManager { get; set; }
+        /// <summary>
+        /// Login manager used for loggin in
+        /// </summary>
+        public ILoginManager LoginManager { get; set; }
 
 
 
@@ -128,9 +128,14 @@ namespace MeemicMobileApp.ViewModels.Login
             LoginAssistCommand = new Command(async () => await LoginAssistCommandExecute());
 
             OnPropertyChanged("LoginCommand");
-			OnPropertyChanged("LoginAssistCommand");
+            OnPropertyChanged("LoginAssistCommand");
 
-		}
+
+#if DEBUG
+            Email = "Test@test.com";
+            Password = "test";
+#endif
+        }
 
 
 

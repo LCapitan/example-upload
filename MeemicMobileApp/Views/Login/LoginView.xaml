@@ -5,6 +5,7 @@
     xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.Login; assembly=MeemicMobileApp"
     xmlns:managers="clr-namespace:MeemicMobileApp.Managers; assembly=MeemicMobileApp"
     xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp"
+    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
     x:Class="MeemicMobileApp.Views.Login.LoginView">
 
     <ContentPage.Resources>
@@ -26,7 +27,7 @@
             <StackLayout Grid.Row="0"  Margin="5">
                 <BoxView Margin="10" BackgroundColor="Red" HeightRequest="100" />
                 <Entry Placeholder="Email Address" Text="{Binding Email}"/>
-                <Entry Placeholder="Password" Text="{Binding Password}"/>
+                <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true" />
 
                 <Grid>
                     <Grid.ColumnDefinitions>

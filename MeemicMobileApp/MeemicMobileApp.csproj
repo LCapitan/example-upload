@@ -57,6 +57,30 @@
     <EmbeddedResource Include="Views\Shared\DevelopmentPlaceholderView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\NavigationHeaderControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\DevelopmentSandboxView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\AccountContainerView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\AccountSummaryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\PoliciesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\BillingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\ClaimsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\IDCardView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -110,6 +134,39 @@
     <Compile Include="Views\Shared\DevelopmentPlaceholderView.xaml.cs">
       <DependentUpon>DevelopmentPlaceholderView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\NavigationHeaderControl.xaml.cs">
+      <DependentUpon>NavigationHeaderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\DevelopmentSandboxView.xaml.cs">
+      <DependentUpon>DevelopmentSandboxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Shared\DevelopmentSandboxViewModel.cs" />
+    <Compile Include="Views\MyMeemic\AccountContainerView.xaml.cs">
+      <DependentUpon>AccountContainerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MyMeemic\AccountContainerViewModel.cs" />
+    <Compile Include="Views\MyMeemic\AccountSummaryView.xaml.cs">
+      <DependentUpon>AccountSummaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MyMeemic\AccountSummaryViewModel.cs" />
+    <Compile Include="Views\MyMeemic\PoliciesView.xaml.cs">
+      <DependentUpon>PoliciesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MyMeemic\PoliciesViewModel.cs" />
+    <Compile Include="Views\MyMeemic\BillingView.xaml.cs">
+      <DependentUpon>BillingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MyMeemic\BillingViewModel.cs" />
+    <Compile Include="Views\MyMeemic\ClaimsView.xaml.cs">
+      <DependentUpon>ClaimsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MyMeemic\ClaimsViewModel.cs" />
+    <Compile Include="Views\MyMeemic\IDCardView.xaml.cs">
+      <DependentUpon>IDCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MyMeemic\IDCardViewModel.cs" />
+    <Compile Include="Behaviors\ListViewSelectedItemCommandBehavior.cs" />
+    <Compile Include="Converters\SelectedItemEventArgsToSelectedItemConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -128,6 +185,10 @@
     <Folder Include="Views\Home\" />
     <Folder Include="ViewModels\Home\" />
     <Folder Include="Converters\" />
+    <Folder Include="CustomControls\" />
+    <Folder Include="Views\MyMeemic\" />
+    <Folder Include="ViewModels\MyMeemic\" />
+    <Folder Include="Behaviors\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

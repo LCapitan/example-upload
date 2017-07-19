@@ -14,8 +14,6 @@ namespace MeemicMobileApp.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Debug.WriteLine("Called!");
-
             if(value is bool)
                 return !(bool)value;
 

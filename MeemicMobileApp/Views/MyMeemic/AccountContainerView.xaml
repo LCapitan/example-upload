@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:MeemicMobileApp.Views.MyMeemic; assembly=MeemicMobileApp"
+    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
+    x:Class="MeemicMobileApp.Views.MyMeemic.AccountContainerView"  >
+
+    <NavigationPage Title="Summary">
+        <x:Arguments>
+            <views:AccountSummaryView />
+        </x:Arguments>
+
+    </NavigationPage>
+
+    <NavigationPage Title="Policies">
+        <x:Arguments>
+            <views:PoliciesView />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Billing">
+        <x:Arguments>
+            <views:BillingView />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="Claims">
+        <x:Arguments>
+            <views:ClaimsView />
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="ID Cards">
+        <x:Arguments>
+            <views:IDCardView />
+        </x:Arguments>
+    </NavigationPage>
+    
+</TabbedPage>

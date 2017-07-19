@@ -127,6 +127,19 @@ namespace MeemicMobileApp.ViewModels.Base
 
 
 
+        protected async Task PushModalAsync(Page page)
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(page);
+        }
+
+
+
+        protected async Task PopModalAsync(Page page) 
+        {
+            await Application.Current.MainPage.Navigation.PopModalAsync();
+        }
+
+
         /// <summary>
         /// Assign the MainPage of the current application
         /// </summary>

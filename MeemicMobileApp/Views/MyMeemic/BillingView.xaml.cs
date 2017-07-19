@@ -3,15 +3,13 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace MeemicMobileApp.Views.Login
+namespace MeemicMobileApp.Views.MyMeemic
 {
-    public partial class LoginAssistView : ContentPage
+    public partial class BillingView : ContentPage
     {
-        public LoginAssistView()
+        public BillingView()
         {
             InitializeComponent();
-
-
         }
     }
 }
