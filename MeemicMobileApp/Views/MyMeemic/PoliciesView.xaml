@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage 
-    xmlns="http://xamarin.com/schemas/2014/forms" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.MyMeemic; assembly=MeemicMobileApp"
-    xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp"
-    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
-    xmlns:behaviors="clr-namespace:MeemicMobileApp.Behaviors; assembly=MeemicMobileApp"
-    xmlns:converters="clr-namespace:MeemicMobileApp.Converters; assembly=MeemicMobileApp"
-    x:Class="MeemicMobileApp.Views.MyMeemic.PoliciesView"
-    BackgroundColor="#FFDEDEDE">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.MyMeemic; assembly=MeemicMobileApp" xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp" xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp" xmlns:behaviors="clr-namespace:MeemicMobileApp.Behaviors; assembly=MeemicMobileApp" xmlns:converters="clr-namespace:MeemicMobileApp.Converters; assembly=MeemicMobileApp" x:Class="MeemicMobileApp.Views.MyMeemic.PoliciesView" BackgroundColor="#FFDEDEDE">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:NullToBoolConverter x:Key="nullToBoolConverter" />
@@ -17,171 +8,158 @@
     <ContentPage.BindingContext>
         <viewModels:PoliciesViewModel />
     </ContentPage.BindingContext>
-	<ContentPage.Content>
-         <StackLayout>
+    <ContentPage.Content>
+        <StackLayout>
             <AbsoluteLayout>
-                <controls:NavigationHeaderControl 
-                    AbsoluteLayout.LayoutFlags="All" 
-                    AbsoluteLayout.LayoutBounds="1,1,1,1" 
-                    NavigationMode="MenuButton" HeaderText="My Meemic Account Summary" />
+                <controls:NavigationHeaderControl AbsoluteLayout.LayoutFlags="All" 
+                    AbsoluteLayout.LayoutBounds="1,1,1,1" NavigationMode="MenuButton" 
+                    HeaderText="My Meemic Account Summary" HeightRequest="75" BackgroundColor="{StaticResource MeemicBlue}" 
+                    HeaderTextColor="White"/>
             </AbsoluteLayout>
-
             <ScrollView>
                 <StackLayout Spacing="0">
                     <Grid BackgroundColor="White" RowSpacing="0" Margin="15,15,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="1*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition Height="1" />
                         </Grid.RowDefinitions>
-
-                        <Label Grid.Row="0" Grid.Column="0" Text="Auto Policy Number" 
-                            TextColor="Silver" FontSize="14" VerticalTextAlignment="Center" 
-                            Margin="15,10,0,0"/>
-                        <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"  
-                            Text="POP78374673" Margin="15,0,0,0"/>
-                        
+                        <Label Grid.Row="0" Grid.Column="0" Text="Auto Policy Number" TextColor="Silver" FontSize="14" VerticalTextAlignment="Center" Margin="15,10,0,0" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" Text="POP78374673" Margin="15,0,0,0" />
                         <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit" />
-                        <BoxView HeightRequest="1" Color="Blue" Grid.Row="2"
-                            Grid.Column="0" Grid.ColumnSpan="2" />
-                        
+                        <BoxView HeightRequest="1" Color="Blue" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
                     </Grid>
-
                     <Grid BackgroundColor="White" RowSpacing="0" Margin="15,15,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="4*"/>
-                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="1*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="1" />
                         </Grid.RowDefinitions>
-
-                        <Label Grid.Row="0" Grid.Column="0" Text="Policy Profile Info" 
-                            TextColor="Green" VerticalTextAlignment="Center" 
-                            Margin="15,15,0,5"/>
-                        
+                        <Label Grid.Row="0" Grid.Column="0" Text="Policy Profile Info" TextColor="{StaticResource MeemicGreen}" VerticalTextAlignment="Center" Margin="15,15,0,5" />
                         <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit" />
-                        <BoxView HeightRequest="1" Color="Blue" Grid.Row="1"
-                            Grid.Column="0" Grid.ColumnSpan="2" />
-                        
+                        <BoxView HeightRequest="1" Color="Blue" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
                     </Grid>
-
                     <Grid BackgroundColor="White" RowSpacing="0" Margin="15,0,15,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="6*"/>
-                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="6*" />
+                            <ColumnDefinition Width="2*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition />
                             <RowDefinition Height="1" />
                         </Grid.RowDefinitions>
-
-                        <Label Grid.Row="0" Grid.Column="0" Text="Pay / View Billing" 
-                            TextColor="Green" VerticalTextAlignment="Center" 
-                            Margin="15,15,0,5"/>
-                        
+                        <Label Grid.Row="0" Grid.Column="0" Text="Pay / View Billing" TextColor="{StaticResource MeemicGreen}" VerticalTextAlignment="Center" Margin="15,15,0,5" />
                         <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit" />
-
                         <Frame HasShadow="False" Padding="0" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="Red" CornerRadius="10" Margin="5,12,5,12" IsVisible="{Binding IsPastDue}">
                             <Label Text="PAST DUE" TextColor="White" FontSize="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" />
                         </Frame>
-                        
-                        <BoxView HeightRequest="1" Color="Blue" Grid.Row="1"
-                            Grid.Column="0" Grid.ColumnSpan="2" />
-                        
+                        <BoxView HeightRequest="1" Color="Blue" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
                     </Grid>
-
-                    <StackLayout BackgroundColor="White" Spacing="0" Margin="15,15,15,0">
-                        <Label Text="NAME INSURED" FontAttributes="Bold" Margin="15,15,0,0"/>
+                    <StackLayout BackgroundColor="White" Spacing="0" Margin="15,15,15,0" IsVisible="false">
+                        <Label Text="NAME INSURED" FontAttributes="Bold" Margin="15,15,0,0" />
                         <controls:ItemsContainerControl ItemsSource="{Binding Insured}">
                             <controls:ItemsContainerControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding FullName}" Margin="15,0,0,0"/>
+                                    <Label Text="{Binding FullName}" Margin="15,0,0,0" />
                                 </DataTemplate>
                             </controls:ItemsContainerControl.ItemTemplate>
                         </controls:ItemsContainerControl>
-                        <Label Text="DRIVERS" FontAttributes="Bold" Margin="15,15,0,0"/>
+                        <Label Text="DRIVERS" FontAttributes="Bold" Margin="15,15,0,0" />
                         <controls:ItemsContainerControl ItemsSource="{Binding Drivers}" Margin="0,0,0,15" IsVisible="False">
                             <controls:ItemsContainerControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid  Margin="15,5,0,0" >
+                                    <Grid Margin="15,5,0,0">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition />
                                             <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
-                                        
                                         <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0" IsVisible="{Binding Item1, Converter={StaticResource nullToBoolConverter}}">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="2*" />
                                                 <ColumnDefinition Width="3*" />
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="1*"/>
-                                                <RowDefinition Height="1*"/>
-                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Height="1*" />
+                                                <RowDefinition Height="1*" />
+                                                <RowDefinition Height="1*" />
                                             </Grid.RowDefinitions>
-                                            <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" 
-                                                HasShadow="False" BackgroundColor="Teal" CornerRadius="30" />
+                                            <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" HasShadow="False" BackgroundColor="Teal" CornerRadius="30" />
                                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding Item1.FirstName}" />
                                             <Label Grid.Row="1" Grid.Column="1" Text="{Binding Item1.LastName}" />
                                             <Label Grid.Row="2" Grid.Column="1" Text="Primary Driver" FontSize="14" IsVisible="{Binding Item1.IsPrimary}" />
                                         </Grid>
-
                                         <Grid Grid.Row="0" Grid.Column="1" IsVisible="{Binding Item2, Converter={StaticResource nullToBoolConverter}}" RowSpacing="0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="2*" />
                                                 <ColumnDefinition Width="3*" />
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="1*"/>
-                                                <RowDefinition Height="1*"/>
-                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Height="1*" />
+                                                <RowDefinition Height="1*" />
+                                                <RowDefinition Height="1*" />
                                             </Grid.RowDefinitions>
-                                            <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" 
-                                                HasShadow="False" BackgroundColor="Teal" CornerRadius="30" />
+                                            <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" HasShadow="False" BackgroundColor="Teal" CornerRadius="30" />
                                             <Label Grid.Row="0" Grid.Column="1" Text="{Binding Item2.FirstName}" />
                                             <Label Grid.Row="1" Grid.Column="1" Text="{Binding Item2.LastName}" />
-                                            <Label Grid.Row="2" Grid.Column="1" Text="Primary Driver"  IsVisible="{Binding Item1.IsPrimary}" FontSize="14" />
+                                            <Label Grid.Row="2" Grid.Column="1" Text="Primary Driver" IsVisible="{Binding Item1.IsPrimary}" FontSize="14" />
                                         </Grid>
                                     </Grid>
                                 </DataTemplate>
                             </controls:ItemsContainerControl.ItemTemplate>
                         </controls:ItemsContainerControl>
-
-                        <Label Text="VEHICLES" FontAttributes="Bold" Margin="15,15,0,0"/>
+                        <Label Text="VEHICLES" FontAttributes="Bold" Margin="15,15,0,0" />
                         <controls:ItemsContainerControl ItemsSource="{Binding Properties}" Margin="0,0,0,15">
                             <controls:ItemsContainerControl.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Margin="15,5,0,0">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="1*"/>
-                                            <ColumnDefinition Width="5*"/>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="5*" />
                                         </Grid.ColumnDefinitions>
-
                                         <Grid.RowDefinitions>
                                             <RowDefinition />
                                             <RowDefinition />
                                         </Grid.RowDefinitions>
                                         <BoxView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" BackgroundColor="Green" />
-
                                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" />
                                         <Label Grid.Row="1" Grid.Column="1" Text="{Binding FormattedID}" />
-
                                     </Grid>
                                 </DataTemplate>
                             </controls:ItemsContainerControl.ItemTemplate>
                         </controls:ItemsContainerControl>
                     </StackLayout>
-
                     <controls:ToggleButtonsControl HeightRequest="100" Margin="15,0,15,0" SelectedIndex="{Binding SelectedFilterIndex, Mode=TwoWay}" />
-                    
+                    <StackLayout BackgroundColor="White" Margin="15,15,15,0">
+                        <Label Text="POLICY DOCUMENTS" FontAttributes="Bold" Margin="15,15,0,0" />
+                        <controls:ItemsContainerControl ItemsSource="{Binding Documents}" Margin="0,0,0,15">
+                            <controls:ItemsContainerControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="15,5,0,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="5*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <BoxView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" BackgroundColor="Green" />
+                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" />
+                                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding FormattedID}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </controls:ItemsContainerControl.ItemTemplate>
+                        </controls:ItemsContainerControl>
+                    </StackLayout>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
-	</ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>

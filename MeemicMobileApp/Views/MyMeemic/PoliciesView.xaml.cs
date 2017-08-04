@@ -9,6 +9,7 @@ namespace MeemicMobileApp.Views.MyMeemic
     {
         public PoliciesView()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
     }

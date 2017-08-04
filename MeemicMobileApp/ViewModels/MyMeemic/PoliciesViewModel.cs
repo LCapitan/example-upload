@@ -47,14 +47,19 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
         public ObservableCollection<Property> Properties { get; private set; }
 
 
+        /// <summary>
+        /// Gets or sets the index of the selected filter.
+        /// </summary>
         public int SelectedFilterIndex 
         {
             get { return selectedFilterIndex; }
             set 
             {
-                if(value != selectedFilterIndex)
+                if(value != selectedFilterIndex && value <= documentsMap.Count())
                 {
                     selectedFilterIndex = value;
+                    Documents = new ObservableCollection<Document>(documentsMap[selectedFilterIndex]);
+                    OnPropertyChanged("Documents");
                 }
 
             }
@@ -143,9 +148,118 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
 
 
 
+            documentsMap = new Dictionary<int, List<Document>>
+            {
+                {
+                    0, new List<Document>
+                    {
+                        new Document
+                        {
+                            Name = "Declaration",
+                            Group = string.Empty,
+                            FileURL = string.Empty,
+                            MailDate = "01/01/2016"
+                        },
+                        new Document
+                        {
+                            Name = "Reinstatement Notice",
+                            Group = string.Empty,
+                            FileURL = string.Empty,
+                            MailDate = "01/02/2016"
+                        },
+                        new Document
+                        {
+                            Name = "Additional Documents",
+                            Group = string.Empty,
+                            FileURL = string.Empty,
+                            MailDate = "01/05/2016"
+                        },
+                        new Document
+                        {
+                            Name = "Invoice",
+                            Group = "Billing",
+                            FileURL = string.Empty,
+                            MailDate = "01/01/2016"
+                        },
+                    }
+                },
+                {
+                    1, new List<Document>
+                    {
+                        new Document
+                        {
+                            Name = "Declaration",
+                            Group = string.Empty,
+                            FileURL = string.Empty,
+                            MailDate = "01/01/2017"
+                        },
+                        new Document
+                        {
+                            Name = "Reinstatement Notice",
+                            Group = string.Empty,
+                            FileURL = string.Empty,
+                            MailDate = "01/02/2017"
+                        },
+                        new Document
+                        {
+                            Name = "Additional Documents",
+                            Group = string.Empty,
+                            FileURL = string.Empty,
+                            MailDate = "01/05/2017"
+                        },
+                        new Document
+                        {
+                            Name = "Proof of Insurance",
+                            Group = "Vehicle",
+                            FileURL = string.Empty,
+                            MailDate = "01/01/2017"
+                        },
+                        new Document
+                        {
+                            Name = "Cancel Notification",
+                            Group = "Billing",
+                            FileURL = string.Empty,
+                            MailDate = "01/01/2017"
+                        },
+                        new Document
+                        {
+                            Name = "Invoice",
+                            Group = "Billing",
+                            FileURL = string.Empty,
+                            MailDate = "01/01/2017"
+                        }
 
+                    }
+                },
+                {
+                    2, new List<Document>
+                    {
+                        new Document
+                        {
+                            Name = "Declaration",
+                            Group = string.Empty,
+                            FileURL = string.Empty,
+                            MailDate = "01/01/2018"
+                        },
+                        new Document
+                        {
+                            Name = "Reinstatement Notice",
+                            Group = string.Empty,
+                            FileURL = string.Empty,
+                            MailDate = "01/02/2018"
+                        },
+                        new Document
+                        {
+                            Name = "Additional Documents",
+                            Group = string.Empty,
+                            FileURL = string.Empty,
+                            MailDate = "01/05/2018"
+                        }
+                    }
+                }
+            };
 
-
+            SelectedFilterIndex = 1;
             OnPropertyChanged("Drivers");
             OnPropertyChanged("Insured");
             OnPropertyChanged("Properties");
@@ -196,7 +310,7 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
     {
 
         public string Name { get; set; }
-		public DateTime MailDate { get; set; }
+		public string MailDate { get; set; }
         public string Group { get; set; }
         public string FileURL { get; set; }
     }

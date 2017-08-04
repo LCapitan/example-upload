@@ -1,6 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MeemicMobileApp.App">
 	<Application.Resources>
-		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <Color x:Key="MeemicBlue">#FF0053A0</Color>
+            <Color x:Key="MeemicGreen">#FF8DC63F</Color>
+            <Color x:Key="FoundationOrange">#FFEE7C1D</Color>
+        </ResourceDictionary>
 	</Application.Resources>
 </Application>
