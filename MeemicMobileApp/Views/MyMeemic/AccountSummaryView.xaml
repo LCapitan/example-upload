@@ -17,6 +17,7 @@
     <ContentPage.BindingContext>
         <viewModels:AccountSummaryViewModel />
     </ContentPage.BindingContext>
+
 	<ContentPage.Content>
        <StackLayout>
             <AbsoluteLayout>
@@ -51,6 +52,7 @@
                     <ListView ItemsSource="{Binding Policies}" SeparatorVisibility="None"
                                 HasUnevenRows="True"
                                 IsGroupingEnabled="true" 
+                                SelectedItem="{Binding SelectedPolicy}"
                                 GroupDisplayBinding="{Binding GroupBy}"
                                 Margin="10,0,10,0">
                         <ListView.Behaviors>

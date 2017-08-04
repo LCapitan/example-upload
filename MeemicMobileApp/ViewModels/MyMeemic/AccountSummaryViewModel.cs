@@ -13,7 +13,6 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
     /// </summary>
     public class AccountSummaryViewModel : BaseViewModel
     {
-
         /// <summary>
         /// The list of Policies
         /// </summary>
@@ -36,14 +35,15 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
             Policies = new ObservableCollection<PolicyGroup>(GeneratePolicies());
             OnPropertyChanged("Policies");
 
-            PolicySelectedCommand = new Command<Policy>(async (p) => await PolicySelectedCommandExecute(p));
+            PolicySelectedCommand = new Command<Policy>(PolicySelectedCommandExecute);
         }
 
 
 
-        private async Task PolicySelectedCommandExecute(Policy policy)
+        private void PolicySelectedCommandExecute(Policy policy)
         {
-            await DisplayAlert(policy.Type.ToString(), policy.CurrentDate, policy.Id, "CANCEL");
+            // await DisplayAlert(policy.Type.ToString(), policy.CurrentDate, policy.Id, "CANCEL");
+            MessagingCenter.Send(this, "policy_details");
         }
 
 

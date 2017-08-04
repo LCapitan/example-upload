@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using MeemicMobileApp.CustomControls;
 using MeemicMobileApp.ViewModels.Base;
@@ -10,6 +11,11 @@ namespace MeemicMobileApp.ViewModels.Shared
     public class DevelopmentSandboxViewModel : BaseViewModel
     {
         private NavigationHeaderMode navigationMode;
+
+        /// <summary>
+        /// Gets the dummy data.
+        /// </summary>
+        public ObservableCollection<Dummy> DummyData { get; private set; }
 
 
 
@@ -53,6 +59,48 @@ namespace MeemicMobileApp.ViewModels.Shared
         {
             SetNavigationModeCommand = new Command<string>(SetNavigationModeCommandExecute);
             DisplayModalCommand = new Command(async () => await DisplayModalCommandExecute());
+
+            DummyData = new ObservableCollection<Dummy>
+            {
+                new Dummy() {
+                    Name="Name 1",
+                    Description="This is a desc",
+                    Value = 14
+                },
+
+				new Dummy() {
+					Name="Name 2",
+					Description="This is a desc",
+					Value = 344
+				},
+
+				new Dummy() {
+					Name="Name 3",
+					Description="This is a desc",
+					Value = 442
+				},
+
+				new Dummy() {
+					Name="Name 4",
+					Description="This is a desc",
+					Value = 56
+				},
+
+				new Dummy() {
+					Name="Name 5",
+					Description="This is a desc",
+					Value = 43
+				},
+
+				new Dummy() {
+					Name="Name 6",
+					Description="This is a desc",
+					Value = 143
+				}
+
+            };
+
+            OnPropertyChanged("DummyData");
         }
 
 
@@ -72,5 +120,13 @@ namespace MeemicMobileApp.ViewModels.Shared
 
             NavigationMode = (NavigationHeaderMode)output;
         }
+    }
+
+
+    public class Dummy 
+    {
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int Value { get; set; }
     }
 }

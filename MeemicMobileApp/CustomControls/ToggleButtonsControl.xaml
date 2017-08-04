@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="MeemicMobileApp.CustomControls.ToggleButtonsControl">
+	<ContentView.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Text="Current Policy Period" Grid.Row="0" 
+                    Grid.Column="0" Grid.ColumnSpan="2" VerticalTextAlignment="End" />
+            <Label Text="New" Grid.Row="0" Grid.Column="3" VerticalTextAlignment="End" />
+
+            <Frame x:Name="frameButton1" Grid.Row="1" Grid.Column="0" HasShadow="false" 
+                    CornerRadius="0" OutlineColor="Blue" BackgroundColor="White" Padding="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped" />
+                </Frame.GestureRecognizers>
+                <Label Text="2/6/16 - 8/1/16" FontSize="12" HorizontalTextAlignment="Center" 
+                        VerticalTextAlignment="Center" />
+            </Frame>
+
+            <Frame x:Name="frameButton2" Grid.Row="1" Grid.Column="1" HasShadow="false" 
+                    CornerRadius="0" OutlineColor="Blue" BackgroundColor="White" Padding="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped" />
+                </Frame.GestureRecognizers>
+                <Label Text="2/6/16 - 8/1/16" FontSize="12" HorizontalTextAlignment="Center" 
+                        VerticalTextAlignment="Center" />
+            </Frame>
+
+
+            <Frame x:Name="frameButton3" Grid.Row="1" Grid.Column="3" HasShadow="false" 
+                    CornerRadius="0" OutlineColor="Blue" BackgroundColor="White" Padding="0">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped" />
+                </Frame.GestureRecognizers>
+                <Label Text="2/6/16 - 8/1/16" FontSize="12" HorizontalTextAlignment="Center" 
+                        VerticalTextAlignment="Center" />
+            </Frame>
+            
+        </Grid>
+	</ContentView.Content>
+</ContentView>

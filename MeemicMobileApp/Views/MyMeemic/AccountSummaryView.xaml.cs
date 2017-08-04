@@ -6,6 +6,8 @@ namespace MeemicMobileApp.Views.MyMeemic
     {
         public AccountSummaryView()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
         }
     }

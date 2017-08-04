@@ -81,6 +81,12 @@
     <EmbeddedResource Include="Views\MyMeemic\IDCardView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ItemsContainerControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ToggleButtonsControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -167,6 +173,14 @@
     <Compile Include="ViewModels\MyMeemic\IDCardViewModel.cs" />
     <Compile Include="Behaviors\ListViewSelectedItemCommandBehavior.cs" />
     <Compile Include="Converters\SelectedItemEventArgsToSelectedItemConverter.cs" />
+    <Compile Include="Behaviors\TabbedPageSelectionBehavior.cs" />
+    <Compile Include="CustomControls\ItemsContainerControl.xaml.cs">
+      <DependentUpon>ItemsContainerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\NullToBoolConverter.cs" />
+    <Compile Include="CustomControls\ToggleButtonsControl.xaml.cs">
+      <DependentUpon>ToggleButtonsControl.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

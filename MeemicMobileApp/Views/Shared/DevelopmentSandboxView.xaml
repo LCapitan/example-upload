@@ -34,6 +34,30 @@
                 </StackLayout>
 
                 <Button Margin="20,10,20,0" Text="Show Modal" BackgroundColor="Silver" Command="{Binding DisplayModalCommand}"/>
+
+                <controls:ItemsContainerControl ItemsSource="{Binding DummyData}">
+                    <controls:ItemsContainerControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,10,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <BoxView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" 
+                                        Grid.ColumnSpan="2" BackgroundColor="Olive" />
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Value}" />
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding Description}" />
+
+                            </Grid>
+                        </DataTemplate>
+                    </controls:ItemsContainerControl.ItemTemplate>
+                </controls:ItemsContainerControl>
                 
             </StackLayout>
             
