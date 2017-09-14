@@ -105,6 +105,9 @@
     <EmbeddedResource Include="CustomControls\RadialButtonControl.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\Claims\SelectPolicyView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -224,6 +227,10 @@
     <Compile Include="CustomControls\RadialButtonControl.xaml.cs">
       <DependentUpon>RadialButtonControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MyMeemic\Claims\SelectPolicyView.xaml.cs">
+      <DependentUpon>SelectPolicyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MyMeemic\Claims\SelectPolicyViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

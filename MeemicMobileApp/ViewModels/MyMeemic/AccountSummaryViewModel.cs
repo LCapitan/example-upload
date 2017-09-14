@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using MeemicMobileApp.ViewModels.Base;
 using MeemicMobileApp.ViewModels.MyMeemic.Policies;
@@ -131,7 +130,7 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
         /// <summary>
         /// Gets the properties.
         /// </summary>
-        public List<Property> Properties { get; private set; }
+        public ObservableCollection<Property> Properties { get; private set; }
 
 
 
@@ -171,7 +170,7 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
 			StartDate = startDate;
 			EndDate = endDate;
 			IsPastDue = isPastDue;
-            Properties = props;
+            Properties = new ObservableCollection<Property>(props);
         }
 
 
