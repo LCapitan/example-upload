@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿using MeemicMobileApp.ViewModels.Login;
 using Xamarin.Forms;
 
 namespace MeemicMobileApp.Views.Login
@@ -11,7 +9,7 @@ namespace MeemicMobileApp.Views.Login
         {
             InitializeComponent();
 
-
+            this.SetNavigation<LoginAssistViewModel>();
         }
     }
 }

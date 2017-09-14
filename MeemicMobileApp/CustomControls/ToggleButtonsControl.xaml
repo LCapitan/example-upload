@@ -5,44 +5,55 @@
 	<ContentView.Content>
         <Grid RowSpacing="0" ColumnSpacing="0">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".5*"/>
                 <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition Width=".5*"/>
                 <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition Width=".5*"/>
                 <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width=".5*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Label Text="Current Policy Period" Grid.Row="0" 
-                    Grid.Column="0" Grid.ColumnSpan="2" VerticalTextAlignment="End" />
-            <Label Text="New" Grid.Row="0" Grid.Column="3" VerticalTextAlignment="End" />
+            
+            <Label Text="Button One" Grid.Row="0" x:Name="button1HeaderText"
+                    Grid.Column="0" Grid.ColumnSpan="3" VerticalTextAlignment="End" />
 
-            <Frame x:Name="frameButton1" Grid.Row="1" Grid.Column="0" HasShadow="false" 
+            <Label Text="Button Two" Grid.Row="0" x:Name="button2HeaderText"
+                    Grid.Column="3" Grid.ColumnSpan="3" VerticalTextAlignment="End" />
+            
+            <Label Text="New Tres" Grid.Row="0" x:Name="button3HeaderText"
+                    Grid.Column="6" Grid.ColumnSpan="3" VerticalTextAlignment="End" />
+
+            <Frame x:Name="frameButton1" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" HasShadow="false" 
                     CornerRadius="0" OutlineColor="{StaticResource MeemicBlue}" BackgroundColor="White" Padding="0">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Handle_Tapped" />
                 </Frame.GestureRecognizers>
-                <Label Text="2/6/16 - 8/1/16" FontSize="12" HorizontalTextAlignment="Center" 
+                <Label x:Name="button1Label" Text="2/6/16 - 8/1/16" FontSize="12" HorizontalTextAlignment="Center" 
                         VerticalTextAlignment="Center" />
             </Frame>
 
-            <Frame x:Name="frameButton2" Grid.Row="1" Grid.Column="1" HasShadow="false" 
+            <Frame x:Name="frameButton2" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="1" HasShadow="false" 
                     CornerRadius="0" OutlineColor="{StaticResource MeemicBlue}" BackgroundColor="White" Padding="0">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Handle_Tapped" />
                 </Frame.GestureRecognizers>
-                <Label Text="2/6/16 - 8/1/16" FontSize="12" HorizontalTextAlignment="Center" 
+                <Label x:Name="button2Label" Text="2/6/16 - 8/1/16" FontSize="12" HorizontalTextAlignment="Center" 
                         VerticalTextAlignment="Center" />
             </Frame>
 
 
-            <Frame x:Name="frameButton3" Grid.Row="1" Grid.Column="3" HasShadow="false" 
+            <Frame x:Name="frameButton3" Grid.Row="1" Grid.Column="7" Grid.ColumnSpan="1" HasShadow="false" 
                     CornerRadius="0" OutlineColor="{StaticResource MeemicBlue}" BackgroundColor="White" Padding="0">
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Handle_Tapped" />
                 </Frame.GestureRecognizers>
-                <Label Text="2/6/16 - 8/1/16" FontSize="12" HorizontalTextAlignment="Center" 
+                <Label x:Name="button3Label" Text="2/6/16 - 8/1/16" FontSize="12" HorizontalTextAlignment="Center" 
                         VerticalTextAlignment="Center" />
             </Frame>
             

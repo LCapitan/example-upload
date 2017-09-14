@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.MyMeemic.Claims; assembly=MeemicMobileApp" 
+    xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp" 
+    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp" 
+    xmlns:behaviors="clr-namespace:MeemicMobileApp.Behaviors; assembly=MeemicMobileApp" 
+    xmlns:converters="clr-namespace:MeemicMobileApp.Converters; assembly=MeemicMobileApp" 
+    x:Class="MeemicMobileApp.Views.MyMeemic.Claims.ClaimsView" BackgroundColor="#FFDEDEDE">
+   
+    <ContentPage.BindingContext>
+        <viewModels:ClaimsViewModel />
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <StackLayout>
+                <controls:NavigationHeaderControl AbsoluteLayout.LayoutFlags="All" 
+                    NavigationMode="MenuButton" 
+                    HeaderText="My Meemic Policy Summary" HeightRequest="85" MinimumHeightRequest="85" BackgroundColor="{StaticResource MeemicBlue}" 
+                    HeaderTextColor="White" />
+            <ScrollView>
+                <StackLayout Spacing="0">
+                    
+                    <controls:ToggleButtonsControl HeightRequest="100" Margin="3,-30,3,0" 
+                        Button1HeaderText=""
+                        Button2HeaderText=""
+                        Button3HeaderText=""
+                        Button1Text="Auto"
+                        Button2Text="Home"
+                        Button3Text="Boat"
+                        FontSize="20"
+                        ButtonBackgroundColor="White"
+                        ButtonFontColor="Black"
+                        ButtonOutlineColor="{StaticResource MeemicBlue}"
+                        ButtonSelectionFontColor="White"
+                        ButtonSelectedBackgroundColor="{StaticResource MeemicBlue}"
+                        SelectedIndex="{Binding SelectedButtonIndex, Mode=TwoWay}" />
+
+                     <Grid BackgroundColor="White" RowSpacing="0" Margin="15,15,15,0" IsVisible="{Binding IsButton1Selected}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="Copy goes here for the infomation that will be displayed about paying or something like that" TextColor="Black" FontSize="18" VerticalTextAlignment="Center" Grid.ColumnSpan="2" Margin="15,15,15,0" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" Text="File an Auto Claim" TextColor="{StaticResource MeemicGreen}" Margin="15,0,0,0" />
+                        <Image Grid.Column="1" Grid.Row="1" Source="chevron" HorizontalOptions="End" HeightRequest="5" MinimumHeightRequest="5" Aspect="AspectFit" />
+                        <BoxView HeightRequest="1" Color="{StaticResource MeemicBlue}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
+                    </Grid>
+
+                     <Grid BackgroundColor="White" RowSpacing="0" Margin="15,15,15,0" IsVisible="{Binding IsButton2Selected}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="Copy goes here for the infomation that will be displayed about paying or something like that" TextColor="Black" FontSize="18" VerticalTextAlignment="Center" Grid.ColumnSpan="2" Margin="15,15,15,0" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" Text="File an Home Claim" TextColor="{StaticResource MeemicGreen}" Margin="15,0,0,0" />
+                        <Image Grid.Column="1" Grid.Row="1" Source="chevron" HorizontalOptions="End" HeightRequest="5" MinimumHeightRequest="5" Aspect="AspectFit" />
+                        <BoxView HeightRequest="1" Color="{StaticResource MeemicBlue}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
+                    </Grid>         
+
+
+                     <Grid BackgroundColor="White" RowSpacing="0" Margin="15,15,15,0" IsVisible="{Binding IsButton3Selected}" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="Copy goes here for the infomation that will be displayed about paying or something like that" TextColor="Black" FontSize="18" VerticalTextAlignment="Center" Grid.ColumnSpan="2" Margin="15,15,15,0" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" Text="File an Boat Claim" TextColor="{StaticResource MeemicGreen}" Margin="15,0,0,0" />
+                        <Image Grid.Column="1" Grid.Row="1" Source="chevron" HorizontalOptions="End" HeightRequest="5" MinimumHeightRequest="5" Aspect="AspectFit" />
+                        <BoxView HeightRequest="1" Color="{StaticResource MeemicBlue}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
+                    </Grid>   
+                    <controls:AgentCardControl HeightRequest="200" Margin="15,15,15,0" />
+
+                    <controls:ContactMeemicCardControl HeightRequest="200" Margin="15,15,15,15" />
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

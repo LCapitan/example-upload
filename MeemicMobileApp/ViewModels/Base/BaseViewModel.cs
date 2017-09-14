@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace MeemicMobileApp.ViewModels.Base
@@ -8,6 +9,28 @@ namespace MeemicMobileApp.ViewModels.Base
     /// </summary>
     public class BaseViewModel : NotifyPropertyChanged
     {
+        private INavigation nav;
+
+
+
+        /// <summary>
+        /// Gets or sets the navigation.
+        /// </summary>
+        public INavigation Navigation { 
+            get {
+                return nav;   
+            } 
+            set
+            {
+                if(nav != value)
+                {
+                    nav = value;
+                    OnPropertyChanged();
+                }
+            } 
+        }
+
+
 
         /// <summary>
         /// Push the page on top of the navagitation stack
@@ -15,7 +38,7 @@ namespace MeemicMobileApp.ViewModels.Base
         /// <param name="page">The page to display</param>
         protected async Task PushPageAsync(Page page)
         {
-            await Application.Current.MainPage.Navigation.PushAsync(page);
+            await Navigation.PushAsync(page);
         }
 
 
@@ -27,22 +50,8 @@ namespace MeemicMobileApp.ViewModels.Base
 		/// <param name="animate">If set to <c>true</c>, animate.</param>
 		protected async Task PushPageAsync(Page page, bool animate)
 		{
-			await Application.Current.MainPage.Navigation.PushAsync(page);
+			await Navigation.PushAsync(page);
 		}
-
-
-
-		///// <summary>
-		///// Push the page on top of the navagitation stack
-		///// </summary>
-		///// <param name="page">The page to display</param>
-		///// <param name="animate">If set to <c>true</c>, animate.</param>
-		///// <param name="showBar">If set to <c>true</c>, show the navigation bar.</param>
-		//protected async Task PushPageAsync(Page page, bool animate, bool showBar)
-        //{
-        //    await Application.Current.MainPage.Navigation.PushAsync(page, animate);
-        //    NavigationPage.SetHasNavigationBar(Application.Current.MainPage, showBar);
-        //}
 
 
 
@@ -53,7 +62,7 @@ namespace MeemicMobileApp.ViewModels.Base
 		/// <returns>A task</returns>
 		protected async Task PopPageAsync(bool animate = true)
         {
-            await Application.Current.MainPage.Navigation.PopAsync(animate);
+            await Navigation.PopAsync(animate);
 
         }
 
@@ -65,9 +74,9 @@ namespace MeemicMobileApp.ViewModels.Base
 		/// <param name="page">Modal to display</param>
 		/// <param name="animate">If set to <c>true</c>, animate.</param>
 		/// <returns>A task</returns>
-		protected async Task PushModalAsync(Page page, bool animate = true) 
+		protected async Task PushModalAsync(Page page, bool animate) 
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(page, animate);    
+            await Navigation.PushModalAsync(page, animate);    
         }
 
 
@@ -79,7 +88,7 @@ namespace MeemicMobileApp.ViewModels.Base
 		/// <returns>A task</returns>
 		protected async Task PopModalAsync(bool animate = true)
         {
-            await Application.Current.MainPage.Navigation.PopModalAsync(animate);
+            await Navigation.PopModalAsync(animate);
         }
 
 
@@ -129,14 +138,14 @@ namespace MeemicMobileApp.ViewModels.Base
 
         protected async Task PushModalAsync(Page page)
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(page);
+            await Navigation.PushModalAsync(page);
         }
 
 
 
         protected async Task PopModalAsync(Page page) 
         {
-            await Application.Current.MainPage.Navigation.PopModalAsync();
+            await Navigation.PopModalAsync();
         }
 
 
@@ -147,6 +156,12 @@ namespace MeemicMobileApp.ViewModels.Base
         protected void SetMainPage(Page page)
         {
             Application.Current.MainPage = page;
+        }
+
+
+        protected void MakeCall(string phoneNumber)
+        {
+            Device.OpenUri(new Uri($"tel: {phoneNumber}"));
         }
 
 

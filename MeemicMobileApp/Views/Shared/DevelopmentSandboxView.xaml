@@ -1,71 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
             xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
             xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.Shared; assembly=MeemicMobileApp"
+            xmlns:views="clr-namespace:MeemicMobileApp.Views.MyMeemic.IDCards; assembly=MeemicMobileApp"
             x:Class="MeemicMobileApp.Views.Shared.DevelopmentSandboxView" BackgroundColor="Green">
-    <ContentPage.BindingContext>
-        <viewModels:DevelopmentSandboxViewModel />
-    </ContentPage.BindingContext>
-	<ContentPage.Content>
-        <AbsoluteLayout>
-            <controls:NavigationHeaderControl 
-                AbsoluteLayout.LayoutFlags="All" 
-                AbsoluteLayout.LayoutBounds="1,0,1,.1" BackgroundColor="Blue" 
-                NavigationMode="{Binding NavigationMode}" HeaderText="Dev Sandbox" />
-        
-            <StackLayout
-                AbsoluteLayout.LayoutFlags="All" 
-                AbsoluteLayout.LayoutBounds="1,1,1,.9"
-                BackgroundColor="Transparent">
 
-                <Label
-                    HorizontalTextAlignment="Center"
-                    FontSize="20"
-                    FontAttributes="Bold"
-                    TextColor="White"
-                    Text="Navigation Bar Mode:" />
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="oy vey" HorizontalOptions="CenterAndExpand" />
+            <controls:RadialButtonControl HeightRequest="25" x:Name="testRadial"> 
+                <controls:RadialButtonControl.Options>
+                    <controls:RadialOptions>
+                        <controls:RadialOption Id="1" Title="This is an option" />
+                        <controls:RadialOption Id="2" Title="This is another" />
+                    </controls:RadialOptions>
+                </controls:RadialButtonControl.Options>
+            </controls:RadialButtonControl>
 
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Padding="5">
-                    <Button BackgroundColor="Silver" Text="None" WidthRequest="80" Command="{Binding SetNavigationModeCommand}" CommandParameter="0" />
-                    <Button BackgroundColor="Silver" Text="Back" WidthRequest="80" Command="{Binding SetNavigationModeCommand}" CommandParameter="1"/>
-                    <Button BackgroundColor="Silver" Text="Form" WidthRequest="80" Command="{Binding SetNavigationModeCommand}" CommandParameter="2"/>
-                    <Button BackgroundColor="Silver" Text="Menu" WidthRequest="80" Command="{Binding SetNavigationModeCommand}" CommandParameter="3"/>
-                </StackLayout>
-
-                <Button Margin="20,10,20,0" Text="Show Modal" BackgroundColor="Silver" Command="{Binding DisplayModalCommand}"/>
-
-                <controls:ItemsContainerControl ItemsSource="{Binding DummyData}">
-                    <controls:ItemsContainerControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Margin="0,10,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-                                <BoxView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" 
-                                        Grid.ColumnSpan="2" BackgroundColor="Olive" />
-
-                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" />
-                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Value}" />
-                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding Description}" />
-
-                            </Grid>
-                        </DataTemplate>
-                    </controls:ItemsContainerControl.ItemTemplate>
-                </controls:ItemsContainerControl>
-                
-            </StackLayout>
-            
-            <BoxView 
-                AbsoluteLayout.LayoutFlags="All" 
-                AbsoluteLayout.LayoutBounds=".1,1,1,.1"
-                BackgroundColor="Fuchsia" />
-            
-        </AbsoluteLayout>
-	</ContentPage.Content>
+            <Label BindingContext="{x:Reference testRadial}" Text="{Binding SelectedOption.Title}" />
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

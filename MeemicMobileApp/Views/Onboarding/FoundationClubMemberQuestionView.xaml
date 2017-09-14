@@ -18,12 +18,19 @@
 	<ContentPage.Content>
         <StackLayout>
             <AbsoluteLayout>
-                <controls:NavigationHeaderControl AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" NavigationMode="BackButton" HeaderText=" " />
+                <controls:NavigationHeaderControl 
+                    AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" 
+                    NavigationMode="BackButton" HeaderText=" " />
             </AbsoluteLayout>
-            <Label Text="Got it." />
-            <Label Text="Ae you a Foundation Club Member?" />
-            <Button Text="Yes" Command="{Binding YesCommand}" />
-            <Button Text="No" Command="{Binding NoCommand}"/>
+            
+            <Label Text="Got it." HorizontalOptions="CenterAndExpand" />
+            <Label Text="Ae you a Foundation Club Member?" HorizontalOptions="CenterAndExpand" />
+            <Button Text="YES" Command="{Binding YesCommand}"
+                    BackgroundColor="#DDFFFFFF" Margin="30, 10, 30, 0"
+                    TextColor="{StaticResource FoundationOrange}" FontAttributes="Bold" />
+            <Button Text="No" Command="{Binding NoCommand}"
+                    BackgroundColor="#DDFFFFFF" Margin="30, 10, 30, 0"
+                    TextColor="{StaticResource FoundationOrange}" FontAttributes="Bold"/>
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

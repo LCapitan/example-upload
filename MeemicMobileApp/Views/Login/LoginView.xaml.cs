@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using MeemicMobileApp.ViewModels.Login;
 using Xamarin.Forms;
 
 namespace MeemicMobileApp.Views.Login
@@ -10,14 +10,12 @@ namespace MeemicMobileApp.Views.Login
         public LoginView()
         {
             NavigationPage.SetHasNavigationBar(this, false);
-			InitializeComponent();
+			
+            InitializeComponent();
+
+            this.SetNavigation<LoginViewModel>();
         }
 
-        protected override void OnAppearing()
-        {
-			base.OnAppearing();
 
-
-        }
     }
 }

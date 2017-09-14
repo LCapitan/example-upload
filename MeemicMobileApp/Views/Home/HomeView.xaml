@@ -28,7 +28,7 @@
     
 	<ContentPage.Content>
         <AbsoluteLayout>
-            <StackLayout AbsoluteLayout.LayoutBounds=".5, .9, .85, .65" 
+            <StackLayout AbsoluteLayout.LayoutBounds=".5, .9, .85, .55" 
                             AbsoluteLayout.LayoutFlags="All" BackgroundColor="Pink">
 
                 <!--Meemic Policy Holder-->

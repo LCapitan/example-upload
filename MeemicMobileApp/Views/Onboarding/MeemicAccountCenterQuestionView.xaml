@@ -5,7 +5,7 @@
     xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.Onboarding; assembly=MeemicMobileApp"
     xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp"
     xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
-    x:Class="MeemicMobileApp.Views.Onboarding.MeemicAccountCenterQuestionView">
+    x:Class="MeemicMobileApp.Views.Onboarding.MeemicAccountCenterQuestionView" BackgroundColor="{StaticResource MeemicBlue}">
     <ContentPage.BindingContext>
         <viewModels:MeemicAccountCenterQuestionViewModel />
     </ContentPage.BindingContext>
@@ -15,10 +15,21 @@
             <AbsoluteLayout>
                 <controls:NavigationHeaderControl AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1" NavigationMode="BackButton" HeaderText=" " />
             </AbsoluteLayout>
-            <Label Text="Have you already registered for the Meemic Account Center?" />
-            <Button Text="No, I haven't registered yet" Command="{Binding NotRegisteredCommand}"/>
-            <Button Text="Yes, I'm registered" Command="{Binding RegisteredCommand}"/>
-            <Button Text="Maybe, I'm not sure" Command="{Binding NotSureCommand}"/>
+            
+            <Label Text="Have you already registered for the" HorizontalOptions="CenterAndExpand"
+                TextColor="White" />
+            <Label Text="Meemic Account Center?"  HorizontalOptions="CenterAndExpand" 
+                TextColor="White" />
+
+            <Button Text="NO, I HAVEN'T REGISTERED YET" Command="{Binding NotRegisteredCommand}"
+                BackgroundColor="#DEFFFFFF" Margin="15,10,15,0" FontAttributes="Bold"
+                />
+            <Button Text="YES, I'M REGISTERED" Command="{Binding RegisteredCommand}"
+                BackgroundColor="#DEFFFFFF" Margin="15,10,15,0" FontAttributes="Bold"
+                />
+            <Button Text="MAYBE, I'M NOT SURE" Command="{Binding NotSureCommand}"
+                BackgroundColor="#DEFFFFFF" Margin="15,10,15,0" FontAttributes="Bold"
+                />
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>

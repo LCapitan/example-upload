@@ -72,19 +72,40 @@ namespace MeemicMobileApp.CustomControls
         /// <summary>
         /// The save button command property.
         /// </summary>
-        public static readonly BindableProperty SaveButtonCommandProperty =
-            BindableProperty.Create("SaveButtonCommand",
+        public static readonly BindableProperty RightButtonCommandProperty =
+            BindableProperty.Create("RightButtonCommand",
                                     typeof(ICommand), typeof(NavigationHeaderControl),
-                                    null, propertyChanged: HandleSaveButtonCommandPropertyChanged);
+                                    null, propertyChanged: HandleRightButtonCommandPropertyChanged);
 
 
         /// <summary>
         /// The save button command pararms property.
         /// </summary>
-        public static readonly BindableProperty SaveButtonCommandPararmsProperty =
-            BindableProperty.Create("SaveButtonCommandParams",
+        public static readonly BindableProperty RightButtonCommandPararmsProperty =
+            BindableProperty.Create("SRightButtonCommandParams",
                                     typeof(object), typeof(NavigationHeaderControl),
-                                    null, propertyChanged: HandleSaveButtonCommandParmsProperty);
+                                    null, propertyChanged: HandleRightButtonCommandParmsProperty);
+
+
+        /// <summary>
+        /// The back button secondary command property.
+        /// </summary>
+        public static readonly BindableProperty BackButtonSecondaryCommandProperty =
+            BindableProperty.Create("BackButtonSecondaryCommand",
+                                    typeof(ICommand), typeof(NavigationHeaderControl),
+                                    null);
+
+
+        /// <summary>
+        /// Gets or sets the color of the right button background.
+        /// </summary>
+        /// <value>The color of the right button background.</value>
+        public Color RightButtonBackgroundColor
+        {
+            get { return RightButton.BackgroundColor; }
+            set { RightButton.BackgroundColor = value; }
+        }
+
 
 
         /// <summary>
@@ -157,10 +178,10 @@ namespace MeemicMobileApp.CustomControls
         /// Gets or sets the save command.
         /// </summary>
         /// <value>The save command.</value>
-        public ICommand SaveCommand
+        public ICommand RightButtonCommand
         {
-            get { return (ICommand)GetValue(SaveButtonCommandProperty); }
-            set { SetValue(SaveButtonCommandPararmsProperty, value); }
+            get { return (ICommand)GetValue(RightButtonCommandProperty); }
+            set { SetValue(RightButtonCommandPararmsProperty, value); }
         }
 
 
@@ -169,12 +190,32 @@ namespace MeemicMobileApp.CustomControls
         /// Gets or sets the save command parameters.
         /// </summary>
         /// <value>The save command parameters.</value>
-        public object SaveCommandParams
+        public object RightButtonCommandParams
         {
-            get { return GetValue(SaveButtonCommandPararmsProperty); }
-            set { SetValue(SaveButtonCommandPararmsProperty, value); }
+            get { return GetValue(RightButtonCommandPararmsProperty); }
+            set { SetValue(RightButtonCommandPararmsProperty, value); }
         }
 
+
+        /// <summary>
+        /// Gets or sets the back button secondary command.
+        /// </summary>
+        public ICommand BackButtonSecondaryCommand
+        {
+            get { return (ICommand)GetValue(BackButtonSecondaryCommandProperty); }
+            set { SetValue(BackButtonSecondaryCommandProperty, value); }
+        }
+
+
+
+        /// <summary>
+        /// Gets or sets the right button text.
+        /// </summary>
+        public string RightButtonText
+        {
+            get { return RightButton.Text; }
+            set { RightButton.Text = value; }
+        }
 
 
         /// <summary>
@@ -190,16 +231,18 @@ namespace MeemicMobileApp.CustomControls
                     NavigationHeaderMode.None, new View[]
                     {
                         BackButton,
+                        BackImage,
                         HeaderTextLabel,
                         MenuButton,
                         CancelButton,
-                        SaveButton
+                        RightButton
                     }
                 },
                 {
                     NavigationHeaderMode.BackButton, new View[]
                     {
                         BackButton,
+                        BackImage,
                         HeaderTextLabel
                     }
                 },
@@ -208,7 +251,7 @@ namespace MeemicMobileApp.CustomControls
                     {
                         CancelButton,
                         HeaderTextLabel,
-                        SaveButton
+                        RightButton
                     }
                 },
                 {
@@ -219,16 +262,26 @@ namespace MeemicMobileApp.CustomControls
                     }
                 },
                 {
+                    NavigationHeaderMode.BackAndButton, new View[]
+                    {
+                        BackButton,
+                        BackImage,
+                        HeaderTextLabel,
+                        RightButton
+                    }
+                },
+                {
                     // We add this to satisify the default value since we are using an 
                     // enum - if we used .None in this case, it wouldn't fire a property
                     // changed event and the control would not update
                     NavigationHeaderMode.DEFAULT_VALUE, new View[]
                     {
+                        BackImage,
                         BackButton,
                         HeaderTextLabel,
                         MenuButton,
                         CancelButton,
-                        SaveButton
+                        RightButton
                     }
                 }
             };
@@ -285,7 +338,7 @@ namespace MeemicMobileApp.CustomControls
         protected void SetButtonTextColor(Color col)
         {
             MenuButton.TextColor = col;
-            SaveButton.TextColor = col;
+            RightButton.TextColor = col;
             CancelButton.TextColor = col;
             BackButton.TextColor = col;
         }
@@ -318,9 +371,9 @@ namespace MeemicMobileApp.CustomControls
         /// Sets the save command.
         /// </summary>
         /// <param name="command">Command.</param>
-        protected void SetSaveCommand(ICommand command)
+        protected void SetRightButtonCommand(ICommand command)
         {
-            SaveButton.Command = command;
+            RightButton.Command = command;
         }
 
 
@@ -329,9 +382,9 @@ namespace MeemicMobileApp.CustomControls
         /// Sets the save command parameters.
         /// </summary>
         /// <param name="parms">Parms.</param>
-        protected void SetSaveCommandParams(object parms)
+        protected void SetRightButtonCommandParams(object parms)
         {
-            SaveButton.CommandParameter = parms;
+            RightButton.CommandParameter = parms;
         }
 
 
@@ -407,29 +460,33 @@ namespace MeemicMobileApp.CustomControls
 
 
 
-        private static void HandleSaveButtonCommandPropertyChanged(BindableObject bindable, object oldValue, object newValue) 
+        private static void HandleRightButtonCommandPropertyChanged(BindableObject bindable, object oldValue, object newValue) 
         {
             var command = newValue as ICommand;
             var control = bindable as NavigationHeaderControl;
 
-            control.SetSaveCommand(command);
+            control.SetRightButtonCommand(command);
         }
 
 
 
-        private static void HandleSaveButtonCommandParmsProperty(BindableObject bindable, object newValue, object oldValue) 
+        private static void HandleRightButtonCommandParmsProperty(BindableObject bindable, object newValue, object oldValue) 
         {
             var control = bindable as NavigationHeaderControl;
 
-            control.SetSaveCommandParams(newValue);
+            control.SetRightButtonCommandParams(newValue);
         }
 
 
-
-
-        void Handle_BackButtonClicked(object sender, System.EventArgs e)
+        void Handle_BackButtonClicked(object sender, EventArgs e)
         {
-            Application.Current.MainPage.Navigation.PopAsync(true);
+            if(BackButtonSecondaryCommand != null)
+            {
+                BackButtonSecondaryCommand.Execute(null);
+                return;
+            }
+
+            Navigation.PopAsync(true);
         }
     }
 
@@ -440,6 +497,7 @@ namespace MeemicMobileApp.CustomControls
         BackButton,
         MenuButton,
         FormButtons,
+        BackAndButton,
         DEFAULT_VALUE
     }
 }

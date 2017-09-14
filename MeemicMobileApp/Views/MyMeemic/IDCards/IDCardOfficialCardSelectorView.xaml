@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.MyMeemic.IDCards; assembly=MeemicMobileApp" 
+    xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp" 
+    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp" 
+    xmlns:behaviors="clr-namespace:MeemicMobileApp.Behaviors; assembly=MeemicMobileApp" 
+    xmlns:converters="clr-namespace:MeemicMobileApp.Converters; assembly=MeemicMobileApp"
+    BackgroundColor="#FFDEDEDE"
+    x:Class="MeemicMobileApp.Views.MyMeemic.IDCards.IDCardOfficialCardSelectorView">
+    <ContentPage.BindingContext>
+        <viewModels:IDCardOfficialCardSelectorViewModel />
+    </ContentPage.BindingContext>
+	<ContentPage.Content>
+        <StackLayout>
+            <controls:NavigationHeaderControl 
+                NavigationMode="BackButton" 
+                HeaderText="Official Auto ID Card" 
+                BackgroundColor="{StaticResource MeemicBlue}" 
+                ButtonTextColor="White" 
+                HeaderTextColor="White"  />
+
+            <Frame Margin="15,15,15,0" HasShadow="false" BackgroundColor="White">
+                <Label Text="There will be copy here that needs to be detereminted at a later date by someone that knows what the copy should be" />
+            </Frame>
+
+            <Grid RowSpacing="0"  Margin="15,15,15,0" Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label Text="Current Policy Period" Margin="0" HorizontalOptions="StartAndExpand" Grid.Row="0" Grid.Column="0" />
+                <Label Text="Current Policy Period" Margin="0" HorizontalOptions="StartAndExpand"  Grid.Row="0" Grid.Column="1" />
+            </Grid>
+
+            <controls:RadialButtonControl HeightRequest="25" Margin="15, 0, 15,0" Padding="0"> 
+                <controls:RadialButtonControl.Options>
+                    <controls:RadialOptions>
+                        <controls:RadialOption Id="1" Title="8/1/16 - 2/1/17" />
+                        <controls:RadialOption Id="2" Title="2/1/17 - 2/1/18" />
+                    </controls:RadialOptions>
+                </controls:RadialButtonControl.Options>
+            </controls:RadialButtonControl>
+
+            <Button Text="VIEW CERTIFICATE OF INSURANCE PDF" BackgroundColor="{StaticResource MeemicGreen}" TextColor="White" Margin="15" FontAttributes="Bold" />
+            
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

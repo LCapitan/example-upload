@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:viewModels="clr-namespace:MeemicMobileApp.CustomControls.ViewModels; assembly=MeemicMobileApp" 
+    x:Class="MeemicMobileApp.CustomControls.ApplyForGrantCard"
+    BackgroundColor="{StaticResource FoundationOrange}">
+    <ContentView.BindingContext>
+        <viewModels:ApplyForGrantsViewModel />
+    </ContentView.BindingContext>
+	<ContentView.Content>
+        <Grid Grid.Row="0" Margin="2" BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <BoxView BackgroundColor="{StaticResource FoundationOrange}" Grid.Row="0" Margin="10" />
+            
+            <Label Text="Apply for Grants" Grid.Row="1" TextColor="{StaticResource FoundationOrange}" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  FontSize="30"/>
+            <Label Text="The Meemic Foundation offers grants for a" TextColor="{StaticResource FoundationOrange}" Grid.Row="2" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="16"/>
+            <Label Text="variety of school and classroom projects." TextColor="{StaticResource FoundationOrange}" Grid.Row="3" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="16"/>
+            <Button BorderWidth="2" BorderColor="{StaticResource MeemicGreen}" 
+                    Text="JOIN TODAY" TextColor="{StaticResource MeemicGreen}" 
+                    Grid.Row="4" Margin="10, 0, 10, 10" FontAttributes="Bold" FontSize="18"
+                    Command="{Binding JoinTodayCommand}"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

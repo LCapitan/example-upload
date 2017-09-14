@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:MeemicMobileApp.CustomControls.ViewModels; assembly=MeemicMobileApp" 
+    x:Class="MeemicMobileApp.CustomControls.ContactMeemicCardControl">
+    <ContentView.BindingContext>
+        <viewModels:ContactMeemicCardViewModel />
+    </ContentView.BindingContext>
+	<ContentView.Content>
+         <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid  Padding="5" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Image Source="chevron" Grid.Row="0" />
+                
+                <Label Text="Contact Meemic Customer Service" Grid.Row="1" 
+                    TextColor="{StaticResource MeemicBlue}" HorizontalTextAlignment="Center"  
+                    VerticalTextAlignment="Center"  FontSize="18"/>
+                
+                <Label Text="24/7 Pay by Phone &amp; Automated Billing Info" 
+                    TextColor="{StaticResource MeemicBlue}" Grid.Row="2" 
+                    HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" 
+                    FontSize="18"/>
+            </Grid>
+            <Grid BackgroundColor="{StaticResource MeemicGreen}"  Padding="5" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Source="chevron" HorizontalOptions="Center" 
+                    VerticalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="CALL" TextColor="White" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="14"/>
+                <Button Command="{Binding CallCommand}" BackgroundColor="Transparent" BorderWidth="0" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" />
+
+                <Image Grid.Row="0" Grid.Column="1" Source="chevron"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="ASK QUESTION" TextColor="White" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="14"/>
+                <Button Command="{Binding AskQuestionCommand}" BackgroundColor="Transparent" BorderWidth="0" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" />
+            </Grid>
+        </Grid>
+	</ContentView.Content>
+</ContentView>

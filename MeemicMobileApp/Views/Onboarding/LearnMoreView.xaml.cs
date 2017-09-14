@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using MeemicMobileApp.ViewModels.Onboarding;
 using Xamarin.Forms;
 
 namespace MeemicMobileApp.Views.Onboarding
@@ -12,6 +12,8 @@ namespace MeemicMobileApp.Views.Onboarding
 			NavigationPage.SetHasNavigationBar(this, false);
 
 			InitializeComponent();
+
+            this.SetNavigation<LearnMoreViewModel>();
         }
     }
 }

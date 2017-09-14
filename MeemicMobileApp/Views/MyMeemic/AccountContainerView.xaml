@@ -3,40 +3,44 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:MeemicMobileApp.Views.MyMeemic; assembly=MeemicMobileApp"
+    xmlns:billingViews="clr-namespace:MeemicMobileApp.Views.MyMeemic.Billing; assembly=MeemicMobileApp"
+    xmlns:claimsViews="clr-namespace:MeemicMobileApp.Views.MyMeemic.Claims; assembly=MeemicMobileApp"
+    xmlns:policiesViews="clr-namespace:MeemicMobileApp.Views.MyMeemic.Policies; assembly=MeemicMobileApp"
+    xmlns:idcardsViews="clr-namespace:MeemicMobileApp.Views.MyMeemic.IDCards; assembly=MeemicMobileApp"
     xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
     xmlns:behaviors="clr-namespace:MeemicMobileApp.Behaviors; assembly=MeemicMobileApp"
-    x:Class="MeemicMobileApp.Views.MyMeemic.AccountContainerView"  >
+    x:Class="MeemicMobileApp.Views.MyMeemic.AccountContainerView" >
     <TabbedPage.Behaviors>
         <behaviors:TabbedPageSelectionBehavior />
     </TabbedPage.Behaviors>
+    
     <NavigationPage Title="Summary">
         <x:Arguments>
             <views:AccountSummaryView />
         </x:Arguments>
-
     </NavigationPage>
 
     <NavigationPage Title="Policies">
         <x:Arguments>
-            <views:PoliciesView />
+            <policiesViews:PoliciesView />
         </x:Arguments>
     </NavigationPage>
 
     <NavigationPage Title="Billing">
         <x:Arguments>
-            <views:BillingView />
+            <billingViews:BillingView />
         </x:Arguments>
     </NavigationPage>
 
     <NavigationPage Title="Claims">
         <x:Arguments>
-            <views:ClaimsView />
+            <claimsViews:ClaimsView />
         </x:Arguments>
     </NavigationPage>
 
     <NavigationPage Title="ID Cards">
         <x:Arguments>
-            <views:IDCardView />
+            <idcardsViews:IDCardListView />
         </x:Arguments>
     </NavigationPage>
     

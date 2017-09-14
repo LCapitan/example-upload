@@ -22,7 +22,7 @@ namespace MeemicMobileApp
                 MainPage = np;      
             }
 
-            // MainPage = new Views.Shared.DevelopmentSandboxView();
+            //MainPage = new Views.Shared.DevelopmentSandboxView();
 
         }
 

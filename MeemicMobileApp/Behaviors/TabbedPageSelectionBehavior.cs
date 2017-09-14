@@ -23,6 +23,7 @@ namespace MeemicMobileApp.Behaviors
 
         private void HandlePolicyDetailsMessage(AccountSummaryViewModel vm)
         {
+            // @NOTE(sjv): This is the way we will change pages
             tabbedPage.CurrentPage = tabbedPage.Children[1];
 
             // Setup the binding context - maybe its the SelectedItem in the VM?

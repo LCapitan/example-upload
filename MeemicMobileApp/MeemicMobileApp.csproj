@@ -69,22 +69,40 @@
     <EmbeddedResource Include="Views\MyMeemic\AccountSummaryView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\MyMeemic\PoliciesView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\MyMeemic\BillingView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\MyMeemic\ClaimsView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\MyMeemic\IDCardView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ItemsContainerControl.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\ToggleButtonsControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\AgentCardControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ContactMeemicCardControl.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\ApplyForGrantCard.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\Billing\BillingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\Claims\ClaimsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\IDCards\IDCardListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\Policies\PoliciesView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\IDCards\IDCardView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\IDCards\IDCardOfficialCardSelectorView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\RadialButtonControl.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -155,22 +173,6 @@
       <DependentUpon>AccountSummaryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MyMeemic\AccountSummaryViewModel.cs" />
-    <Compile Include="Views\MyMeemic\PoliciesView.xaml.cs">
-      <DependentUpon>PoliciesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\MyMeemic\PoliciesViewModel.cs" />
-    <Compile Include="Views\MyMeemic\BillingView.xaml.cs">
-      <DependentUpon>BillingView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\MyMeemic\BillingViewModel.cs" />
-    <Compile Include="Views\MyMeemic\ClaimsView.xaml.cs">
-      <DependentUpon>ClaimsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\MyMeemic\ClaimsViewModel.cs" />
-    <Compile Include="Views\MyMeemic\IDCardView.xaml.cs">
-      <DependentUpon>IDCardView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\MyMeemic\IDCardViewModel.cs" />
     <Compile Include="Behaviors\ListViewSelectedItemCommandBehavior.cs" />
     <Compile Include="Converters\SelectedItemEventArgsToSelectedItemConverter.cs" />
     <Compile Include="Behaviors\TabbedPageSelectionBehavior.cs" />
@@ -180,6 +182,47 @@
     <Compile Include="Converters\NullToBoolConverter.cs" />
     <Compile Include="CustomControls\ToggleButtonsControl.xaml.cs">
       <DependentUpon>ToggleButtonsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\AgentCardControl.xaml.cs">
+      <DependentUpon>AgentCardControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ContactMeemicCardControl.xaml.cs">
+      <DependentUpon>ContactMeemicCardControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ViewModels\ContactMeemicCardViewModel.cs" />
+    <Compile Include="CustomControls\ViewModels\AgentCardViewModel.cs" />
+    <Compile Include="CustomControls\ApplyForGrantCard.xaml.cs">
+      <DependentUpon>ApplyForGrantCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ViewModels\ApplyForGrantsViewModel.cs" />
+    <Compile Include="Views\MyMeemic\Billing\BillingView.xaml.cs">
+      <DependentUpon>BillingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyMeemic\Claims\ClaimsView.xaml.cs">
+      <DependentUpon>ClaimsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyMeemic\IDCards\IDCardListView.xaml.cs">
+      <DependentUpon>IDCardListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyMeemic\Policies\PoliciesView.xaml.cs">
+      <DependentUpon>PoliciesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MyMeemic\Claims\ClaimsViewModel.cs" />
+    <Compile Include="ViewModels\MyMeemic\IDCards\IDCardListViewModel.cs" />
+    <Compile Include="ViewModels\MyMeemic\Policies\PoliciesViewModel.cs" />
+    <Compile Include="ViewModels\MyMeemic\Billing\BillingViewModel.cs" />
+    <Compile Include="Views\MyMeemic\IDCards\IDCardView.xaml.cs">
+      <DependentUpon>IDCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\ExtentionMethods.cs" />
+    <Compile Include="ViewModels\MyMeemic\IDCards\IDCardViewModel.cs" />
+    <Compile Include="ViewModels\Onboarding\LearnMoreViewModel.cs" />
+    <Compile Include="ViewModels\MyMeemic\IDCards\IDCardOfficialCardSelectorViewModel.cs" />
+    <Compile Include="Views\MyMeemic\IDCards\IDCardOfficialCardSelectorView.xaml.cs">
+      <DependentUpon>IDCardOfficialCardSelectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\RadialButtonControl.xaml.cs">
+      <DependentUpon>RadialButtonControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +246,16 @@
     <Folder Include="Views\MyMeemic\" />
     <Folder Include="ViewModels\MyMeemic\" />
     <Folder Include="Behaviors\" />
+    <Folder Include="CustomControls\ViewModels\" />
+    <Folder Include="Views\MyMeemic\Billing\" />
+    <Folder Include="Views\MyMeemic\Policies\" />
+    <Folder Include="Views\MyMeemic\IDCards\" />
+    <Folder Include="Views\MyMeemic\Claims\" />
+    <Folder Include="ViewModels\MyMeemic\Billing\" />
+    <Folder Include="ViewModels\MyMeemic\Claims\" />
+    <Folder Include="ViewModels\MyMeemic\IDCards\" />
+    <Folder Include="ViewModels\MyMeemic\Policies\" />
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MeemicMobileApp.ViewModels.Base;
+using MeemicMobileApp.ViewModels.MyMeemic.Policies;
 using Xamarin.Forms;
 
 namespace MeemicMobileApp.ViewModels.MyMeemic
@@ -42,7 +43,6 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
 
         private void PolicySelectedCommandExecute(Policy policy)
         {
-            // await DisplayAlert(policy.Type.ToString(), policy.CurrentDate, policy.Id, "CANCEL");
             MessagingCenter.Send(this, "policy_details");
         }
 
@@ -128,6 +128,12 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
         public string CurrentDate => $"Current: {StartDate.ToString("MM/dd/yyyy")} - {EndDate.ToString("MM/dd/yyyy")}";
 
 
+        /// <summary>
+        /// Gets the properties.
+        /// </summary>
+        public List<Property> Properties { get; private set; }
+
+
 
         /// <summary>
         /// Constructor
@@ -144,7 +150,30 @@ namespace MeemicMobileApp.ViewModels.MyMeemic
             StartDate = startDate;
             EndDate = endDate;
             IsPastDue = isPastDue;
+
         }
+
+
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:MeemicMobileApp.ViewModels.MyMeemic.Policy"/> class.
+        /// </summary>
+        /// <param name="id">Identifier.</param>
+        /// <param name="type">Type.</param>
+        /// <param name="startDate">Start date.</param>
+        /// <param name="endDate">End date.</param>
+        /// <param name="isPastDue">If set to <c>true</c> is past due.</param>
+        /// <param name="props">Properties.</param>
+        public Policy(string id, PolicyType type, DateTime startDate, DateTime endDate, bool isPastDue, List<Property> props)
+        {
+			Id = id;
+			Type = type;
+			StartDate = startDate;
+			EndDate = endDate;
+			IsPastDue = isPastDue;
+            Properties = props;
+        }
+
 
     }
 

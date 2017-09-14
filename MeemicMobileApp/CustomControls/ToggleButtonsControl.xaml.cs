@@ -15,47 +15,7 @@ namespace MeemicMobileApp.CustomControls
 		/// </summary>
 		public static readonly BindableProperty SelectedIndexProperty =
             BindableProperty.Create("SelectedIndex", typeof(int), typeof(ToggleButtonsControl), -1, propertyChanged: HandleBindingPropertyChangedDelegate);
-
-
-
-        /// <summary>
-        /// The outline color property.
-        /// </summary>
-        public static readonly BindableProperty ButtonOutlineColorProperty =
-            BindableProperty.Create("ButtonOutlineColor", typeof(Color), typeof(ToggleButtonsControl), Color.Black, propertyChanged: ButtonOutlineColorPropertyChanged);
-
-
-        /// <summary>
-        /// The button background color property.
-        /// </summary>
-        public static readonly BindableProperty ButtonBackgroundColorProperty =
-            BindableProperty.Create("ButtonBackgroundColor", typeof(Color), typeof(ToggleButtonsControl), Color.White, propertyChanged: ButtonBackgroundColorPropertyChanged);
-
-
-
-        /// <summary>
-        /// The selection color property.
-        /// </summary>
-        public static readonly BindableProperty ButtonSelectedBackgroundColorProperty =
-            BindableProperty.Create("ButtonSelectedBackgroundColor", typeof(Color), typeof(ToggleButtonsControl), Color.Black, propertyChanged: ButtonSelectedBackgroundColorPropertyChanged);
-
-
-
-        /// <summary>
-        /// The font color property.
-        /// </summary>
-        public static readonly BindableProperty ButtonFontColorProperty =
-            BindableProperty.Create("ButtonFontColor", typeof(Color), typeof(ToggleButtonsControl), Color.Black, propertyChanged: ButtonFontColorPropertyChanged);
-
-
-
-        /// <summary>
-        /// The selection font color property.
-        /// </summary>
-        public static readonly BindableProperty ButtonSelectionFontColorProperty =
-            BindableProperty.Create("ButtonSelectionFontColor", typeof(Color), typeof(ToggleButtonsControl), Color.White, propertyChanged: ButtonSelectionFontColorPropertyChanged);
-
-
+        
 
         /// <summary>
         /// Gets or sets the index of the selected.
@@ -67,67 +27,171 @@ namespace MeemicMobileApp.CustomControls
         }
 
 
+		/// <summary>
+		/// Toggle button outline color
+		/// </summary>
+		/// <value>The color of the outline.</value>
+		public Color ButtonOutlineColor
+		{
+            set { SetButtonOutlineColor(value); } // @HACK(sjv): Some people think this is bad,
+                                                  // but maybe they are the bad ones.
+		}
 
-        /// <summary>
-        /// Gets or sets the color of the button background.
-        /// </summary>
-        public Color ButtonBackgroundColor
-        {
-            get { return (Color)GetValue(ButtonBackgroundColorProperty); }
-            set { SetValue(ButtonBackgroundColorProperty, value); }
-        }
 
 
-
-        /// <summary>
-        /// Toggle button outline color
-        /// </summary>
-        /// <value>The color of the outline.</value>
-        public Color ButtonOutlineColor 
-        {
-            get { return (Color)GetValue(ButtonOutlineColorProperty); }
-            set { SetValue(ButtonOutlineColorProperty, value); }
-        }
+		/// <summary>
+		/// Gets or sets the color of the button background.
+		/// </summary>
+		public Color ButtonBackgroundColor { get; set; } = Color.White;
 
 
 
         /// <summary>
         /// Gets or sets the color of the selection.
         /// </summary>
-        public Color ButtonSelectedBackgroundColor
-        {
-            get { return (Color)GetValue(ButtonSelectedBackgroundColorProperty); }
-            set { SetValue(ButtonSelectedBackgroundColorProperty, value); }
-        }
+        public Color ButtonSelectedBackgroundColor { get; set; } = Color.Blue;
 
 
 
         /// <summary>
         /// Gets or sets the color of the font.
         /// </summary>
-        public Color ButtonFontColor 
-        {
-            get { return (Color)GetValue(ButtonFontColorProperty); }
-            set { SetValue(ButtonFontColorProperty, value); }
-        }
+        public Color ButtonFontColor { get; set; } = Color.White;
 
 
 
         /// <summary>
         /// Gets or sets the color of the selection font.
         /// </summary>
-        public Color ButtonSelectionFontColor 
+        public Color ButtonSelectionFontColor { get; set; } = Color.Blue;
+
+
+
+        /// <summary>
+        /// Gets or sets the button1 text.
+        /// </summary>
+        public string Button1Text 
         {
-            get { return (Color)GetValue(ButtonSelectionFontColorProperty); }
-            set { SetValue(ButtonSelectionFontColorProperty, value); }
+            get { return button1Label.Text; }
+            set 
+            {
+                button1Label.Text = value;
+            }
+
+        }
+
+
+
+		/// <summary>
+		/// Gets or sets the button2 text.
+		/// </summary>
+		public string Button2Text
+		{
+			get { return button2Label.Text; }
+			set
+			{
+				button2Label.Text = value;
+			}
+
+		}
+
+
+
+		/// <summary>
+		/// Gets or sets the button3 text.
+		/// </summary>
+		public string Button3Text
+		{
+			get { return button3Label.Text; }
+			set
+			{
+				button3Label.Text = value;
+			}
+
+		}
+
+
+
+        /// <summary>
+        /// Gets or sets the size of the font.
+        /// </summary>
+        public double FontSize
+        {
+            get { return button1Label.FontSize; }
+            set
+            {
+                button1Label.FontSize = value;
+                button2Label.FontSize = value;
+                button3Label.FontSize = value;
+            }
         }
 
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:MeemicMobileApp.CustomControls.ToggleButtonsControl"/> class.
+        /// Gets or sets the button1 header text.
         /// </summary>
-        public ToggleButtonsControl()
+        public string Button1HeaderText
+        {
+            get { return button1HeaderText.Text; }
+            set { button1HeaderText.Text = value; }
+
+        }
+
+
+
+        /// <summary>
+        /// Gets or sets the button2 header text.
+        /// </summary>
+		public string Button2HeaderText
+		{
+			get { return button2HeaderText.Text; }
+			set { button2HeaderText.Text = value; }
+
+		}
+
+
+
+        /// <summary>
+        /// Gets or sets the button3 header text.
+        /// </summary>
+		public string Button3HeaderText
+		{
+			get { return button3HeaderText.Text; }
+			set { button3HeaderText.Text = value; }
+
+		}
+
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this
+        /// <see cref="T:MeemicMobileApp.CustomControls.ToggleButtonsControl"/> is button header visible.
+        /// </summary>
+        public bool IsButtonHeaderVisible
+        {
+            get { return button1HeaderText.IsVisible; }
+            set { SetHeaderTextState(value); }
+        }
+
+
+
+        /// <summary>
+        /// Gets or sets the font family.
+        /// </summary>
+        public string FontFamily 
+        {
+            set 
+            {
+                SetFontForButtons(value);
+            }
+        }
+
+
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="T:MeemicMobileApp.CustomControls.ToggleButtonsControl"/> class.
+		/// </summary>
+		public ToggleButtonsControl()
         {
             InitializeComponent();
 
@@ -137,6 +201,30 @@ namespace MeemicMobileApp.CustomControls
                 frameButton2,
                 frameButton3
             };
+
+            SetHeaderTextState(true);
+
+        }
+
+
+        private void SetHeaderTextState(bool visibility)
+        {
+            button1HeaderText.IsVisible = visibility;
+            button2HeaderText.IsVisible = visibility;
+            button3HeaderText.IsVisible = visibility;
+
+            if (visibility == false)
+            {
+                Grid.SetRow(frameButton1, 0);
+                Grid.SetRowSpan(frameButton1, 2);
+
+                Grid.SetRow(frameButton2, 0);
+                Grid.SetRowSpan(frameButton2, 2);
+
+                Grid.SetRow(frameButton3, 0);
+                Grid.SetRowSpan(frameButton3, 2);
+
+            }
 
         }
 
@@ -205,44 +293,29 @@ namespace MeemicMobileApp.CustomControls
 
 
 
+        private void SetButtonOutlineColor(Color color) 
+        {
+            for (int i = 0; i < buttons.Count; i++)
+                buttons[i].OutlineColor = color;
+        }
+
+
+        private void SetFontForButtons(string font) 
+        {
+            for (int i = 0; i < buttons.Count; i++)
+                if (buttons[0].Content is Label label)
+                    label.FontFamily = font;
+        }
+
+
+
+
         static void HandleBindingPropertyChangedDelegate(BindableObject bindable, object oldValue, object newValue)
         {
             var control = bindable as ToggleButtonsControl;
             var index = (int)newValue;
 
             control.SetActiveByIndex(index);
-        }
-
-
-        private static void ButtonOutlineColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            
-        }
-
-
-
-        private static void ButtonBackgroundColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            
-        }
-
-
-
-        private static void ButtonSelectedBackgroundColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            
-        }
-
-
-        private static void ButtonFontColorPropertyChanged(BindableObject bindable, object oldValue, object newValue) 
-        {
-            
-        }
-
-
-        private static void ButtonSelectionFontColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            
         }
 
 

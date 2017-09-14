@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:viewModels="clr-namespace:MeemicMobileApp.CustomControls.ViewModels; assembly=MeemicMobileApp" 
+    x:Class="MeemicMobileApp.CustomControls.AgentCardControl">
+    <ContentView.BindingContext>
+        <viewModels:AgentCardViewModel />
+    </ContentView.BindingContext>
+	<ContentView.Content>
+        <Grid BackgroundColor="Gray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid  Padding="5" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Image Source="chevron" Grid.Row="0" />
+                
+                <Label Text="Mark Owens" Grid.Row="1" TextColor="White" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"  FontSize="20"/>
+                <Label Text="Mark Owens Insurance Agency" TextColor="White" Grid.Row="2" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="20"/>
+                <Label Text="123 Anyplace Lane, Anyplace, MI 06000" TextColor="White" Grid.Row="3" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="14"/>
+            </Grid>
+            <Grid BackgroundColor="{StaticResource MeemicGreen}"  Padding="5" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Grid.Column="0" Source="chevron" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="CALL" TextColor="White" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="14"/>
+                <Button Command="{Binding CallCommand}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  />
+
+                <Image Grid.Row="0" Grid.Column="1" Source="chevron"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="EMAIL" TextColor="White" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="14"/>
+                <Button Command="{Binding EmailCommand}" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"  />
+
+                <Image Grid.Row="0" Grid.Column="2" Source="chevron"  HorizontalOptions="Center" VerticalOptions="Center" />
+                <Label Grid.Row="1" Grid.Column="2" Text="WEBSITE" TextColor="White" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="14"/>
+                <Button Command="{Binding WebsiteCommand}" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"  />
+
+                <Image Grid.Row="0" Grid.Column="3" Source="chevron"  HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label Grid.Row="1" Grid.Column="3" Text="MAP" TextColor="White" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="14"/>
+                <Button Command="{Binding MapCommand}" Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"  />            
+            </Grid>
+        </Grid>
+	</ContentView.Content>
+</ContentView>

@@ -20,12 +20,12 @@
 
 	<ContentPage.Content>
        <StackLayout>
-            <AbsoluteLayout>
                 <controls:NavigationHeaderControl 
+                    HeightRequest="85" MinimumHeightRequest="85"
                     AbsoluteLayout.LayoutFlags="All" 
                     AbsoluteLayout.LayoutBounds="1,1,1,1" 
-                    NavigationMode="MenuButton" HeaderText="My Meemic Account Summary" />
-            </AbsoluteLayout>
+                    NavigationMode="MenuButton" HeaderText="My Meemic Account Summary" 
+                    BackgroundColor="{StaticResource MeemicBlue}" HeaderTextColor="White"/>
 
             <ScrollView>
                 <StackLayout>
@@ -44,7 +44,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Label Text="Don't see all the policies listed?" Grid.Column="0" FontSize="15" VerticalTextAlignment="Center"/>
-                                <Button Text="Add a Policy" TextColor="Green" Grid.Column="1" />
+                                <Button Text="Add a Policy" TextColor="{StaticResource MeemicGreen}" Grid.Column="1" />
                             </Grid>
                         </StackLayout>
                     </Frame>
@@ -63,7 +63,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <Grid BackgroundColor="Blue" Padding="2"> 
+                                    <Grid BackgroundColor="{StaticResource MeemicBlue}" Padding="2"> 
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="6*" />
                                             <ColumnDefinition Width="2*" />
@@ -113,6 +113,11 @@
                             </DataTemplate>
                         </ListView.GroupHeaderTemplate>
                     </ListView>
+                    <controls:AgentCardControl HeightRequest="200" MinimumWidthRequest="200" Margin="15,15,15,0" />
+                    <controls:ContactMeemicCardControl HeightRequest="200" MinimumWidthRequest="200" Margin="15,15,15,0" />
+                    <controls:ApplyForGrantCard HeightRequest="200" MinimumWidthRequest="200"
+                        Margin="15,15,15,15" />
+                    
                 </StackLayout>
             </ScrollView>
         </StackLayout>

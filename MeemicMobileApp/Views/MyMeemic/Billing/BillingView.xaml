@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.MyMeemic.Billing; assembly=MeemicMobileApp" 
+    xmlns:dataProviders="clr-namespace:MeemicMobileApp.DataProviders; assembly=MeemicMobileApp" 
+    xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp" 
+    xmlns:behaviors="clr-namespace:MeemicMobileApp.Behaviors; assembly=MeemicMobileApp" 
+    xmlns:converters="clr-namespace:MeemicMobileApp.Converters; assembly=MeemicMobileApp" 
+    x:Class="MeemicMobileApp.Views.MyMeemic.Billing.BillingView" BackgroundColor="#FFDEDEDE">
+	<ContentPage.Content>
+        <StackLayout>
+            <controls:NavigationHeaderControl AbsoluteLayout.LayoutFlags="All" 
+                    NavigationMode="MenuButton" 
+                    HeaderText="Billing" HeightRequest="85" MinimumHeightRequest="85" BackgroundColor="{StaticResource MeemicBlue}" 
+                    HeaderTextColor="White"/>
+            
+            <ScrollView>
+                <StackLayout Spacing="0">
+                    <Grid BackgroundColor="White" RowSpacing="0" Margin="15,15,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="Auto Policy Number" TextColor="Silver" FontSize="14" VerticalTextAlignment="Center" Margin="15,10,0,0" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" Text="POP78374673" Margin="15,0,0,0" />
+                        <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit" />
+                        <BoxView HeightRequest="1" Color="{StaticResource MeemicBlue}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
+                    </Grid>
+
+                    <Label Text="Payments may take up to 24 hours to process as of 06/22/2016" 
+                            FontSize="14" Margin="15,15,15,0" />
+
+
+                    <Grid IsVisible="false" BackgroundColor="White" RowSpacing="0" Margin="15,15,15,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" BackgroundColor="White" Margin="15, 0, 0, 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="CURRENT DUE AMOUNT" FontAttributes="Bold" Grid.Column="0" 
+                                VerticalTextAlignment="Center" />
+
+                            <Frame HasShadow="False" Padding="0" HeightRequest="30" MinimumHeightRequest="10" 
+                                Grid.Column="1" Grid.Row="0" BackgroundColor="Red" CornerRadius="10" 
+                                IsVisible="true">
+                                
+                                <Label Text="PAST DUE" TextColor="White" FontSize="12"
+                                    HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                                    FontAttributes="Bold" />
+
+                            </Frame>
+
+
+                        </Grid>
+
+                        <Grid  Grid.Row="1"  Padding="15,0, 0,0" BackgroundColor="{StaticResource MeemicBlue}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions> 
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label TextColor="White" Text="Current + Past Due" />
+
+                            <StackLayout Orientation="Horizontal" Grid.Row="1">
+                                <Label Text="$515.00" TextColor="White" FontAttributes="Bold" />
+                                <Label Text="Due Date" TextColor="White" />
+                                <Label Text="06/12/2018" TextColor="White" />
+                            </StackLayout>
+
+                            <Button Text="PAY" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                                    BackgroundColor="{StaticResource MeemicGreen}" Margin="4"
+                                    TextColor="White" FontAttributes="Bold" FontSize="20" />
+                        </Grid>
+                        
+                        <Grid BackgroundColor="White" RowSpacing="0" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="View Details" TextColor="{StaticResource MeemicGreen}" VerticalTextAlignment="Center" Margin="15,10,0,0" />
+                            <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit" />
+                            <BoxView HeightRequest="1" Color="{StaticResource MeemicBlue}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                            <Button BackgroundColor="Transparent" Grid.Row="0" Grid.RowSpan="2" />
+                        </Grid>
+                        
+                        
+                    </Grid>
+
+
+                    <Grid IsVisible="false" BackgroundColor="White" RowSpacing="0" Margin="15,15,15,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" BackgroundColor="White" Margin="15, 0, 0, 0">
+
+                            <Label Text="ADDITIONAL PAYMENT OPTIONS" FontAttributes="Bold" Grid.Column="0" 
+                                VerticalTextAlignment="Center" />
+
+                        </Grid>
+
+                        <Grid Grid.Row="1"  Padding="15,0, 0,0" BackgroundColor="{StaticResource MeemicBlue}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions> 
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label TextColor="White" Text="Current + Upcoming" />
+
+                            <StackLayout Orientation="Horizontal" Grid.Row="1">
+                                <Label Text="$515.00" TextColor="White" FontAttributes="Bold" />
+                                <Frame Margin="2" BackgroundColor="Yellow" Padding="5,-2,5,-2" HasShadow="false" CornerRadius="8" >
+                                    <Label Text="SAVE $90" FontSize="12" VerticalTextAlignment="Center" TextColor="Black" FontAttributes="Bold" />
+                                </Frame>
+                            </StackLayout>
+
+                            <Button Text="PAY" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                                    BackgroundColor="White" Margin="4" BorderWidth="2" BorderColor="{StaticResource MeemicGreen}"
+                                    TextColor="{StaticResource MeemicGreen}" FontAttributes="Bold" FontSize="20" />
+                        </Grid>
+                        
+                        <Grid BackgroundColor="White" RowSpacing="0" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="View Details" TextColor="{StaticResource MeemicGreen}" VerticalTextAlignment="Center" Margin="15,10,0,0" />
+                            <Image  Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit" />
+                            <BoxView HeightRequest="1" Color="{StaticResource MeemicBlue}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                            <Button BackgroundColor="Transparent" Grid.Row="0" Grid.RowSpan="2" />
+                        </Grid>
+                        
+                    </Grid>
+
+
+                    <Grid BackgroundColor="White" RowSpacing="0" Margin="15,15,15,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0"  Padding="15,0, 0,0" BackgroundColor="{StaticResource MeemicBlue}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions> 
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label TextColor="White" Text="Paid-In-Full + Renewal" />
+
+                            <StackLayout Orientation="Horizontal" Grid.Row="1">
+                                <Label Text="$515.00" TextColor="White" FontAttributes="Bold" />
+                                <Label Text="Due Date" TextColor="White" />
+                                <Label Text="06/12/2018" TextColor="White" />
+                            </StackLayout>
+
+                            <Button Text="PAY" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                                    BackgroundColor="White" Margin="4" BorderWidth="2" BorderColor="{StaticResource MeemicGreen}"
+                                    TextColor="{StaticResource MeemicGreen}" FontAttributes="Bold" FontSize="20" />
+                        </Grid>
+                        
+                        <Grid BackgroundColor="White" RowSpacing="0" Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="View Details" TextColor="{StaticResource MeemicGreen}" VerticalTextAlignment="Center" Margin="15,10,0,0" />
+                            <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit" />
+                            <BoxView HeightRequest="1" Color="{StaticResource MeemicBlue}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                            <Button BackgroundColor="Transparent" Grid.Row="0" Grid.RowSpan="2" />
+                        </Grid>
+                        
+                    </Grid>
+
+
+                    <Grid BackgroundColor="{StaticResource MeemicBlue}" RowSpacing="0" Margin="15,15,15,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+
+                        <Label Text="Pay Other Amount" Grid.Column="0" TextColor="White" Margin="15"/>
+                        
+                        <Button Text="PAY" Grid.Row="0" Grid.Column="1"
+                                    BackgroundColor="White" Margin="4" BorderWidth="2" BorderColor="{StaticResource MeemicGreen}"
+                                    TextColor="{StaticResource MeemicGreen}" FontAttributes="Bold" FontSize="20" />
+
+                        
+                    </Grid>
+           
+                        
+                   <Grid BackgroundColor="White" RowSpacing="0" Margin="15,15,15,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="STATEMENT" FontAttributes="Bold" TextColor="Black" FontSize="18" VerticalTextAlignment="Center" Margin="15,10,0,0" />
+                        <Label Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" Text="View Statment PDF" TextColor="{StaticResource MeemicGreen}" Margin="15,0,0,0" />
+                        <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit" />
+                        <BoxView HeightRequest="1" Color="{StaticResource MeemicBlue}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
+                    </Grid>
+
+                   <Grid BackgroundColor="White" RowSpacing="0" Margin="15,15,15,15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Label  Grid.Row="0" Grid.Column="0" VerticalTextAlignment="Center" Text="Discuss Billing/Payment Options" TextColor="{StaticResource MeemicGreen}" Margin="15,15,0,7" />
+                        <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Source="chevron" HorizontalOptions="End" HeightRequest="20" Aspect="AspectFit" />
+                        <BoxView HeightRequest="1" Color="{StaticResource MeemicBlue}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>
