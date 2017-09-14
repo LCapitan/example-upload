@@ -8,8 +8,7 @@ public static class ExtentionMethods
     /// </summary>
     /// <param name="cp">ContentPage</param>
     /// <typeparam name="TViewModel">ViewModel</typeparam>
-    public static void SetNavigation<TViewModel>(this ContentPage cp) 
-        where TViewModel : BaseViewModel 
+    public static void SetNavigation<TViewModel>(this ContentPage cp) where TViewModel : BaseViewModel 
     {
         if (cp.BindingContext is TViewModel viewModel) viewModel.Navigation = cp.Navigation;
     }

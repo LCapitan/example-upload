@@ -18,7 +18,7 @@ namespace MeemicMobileApp.ViewModels.Base
         /// Notify when a property has changed
         /// </summary>
         /// <param name="propName">Property name</param>
-        protected void OnPropertyChanged([CallerMemberName] string propName = null) 
+        protected void OnPropertyChanged([CallerMemberName] string propName = null)
         {
             var propertyChanged = PropertyChanged;
             propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));

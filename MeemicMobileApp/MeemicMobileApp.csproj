@@ -108,6 +108,9 @@
     <EmbeddedResource Include="Views\MyMeemic\Claims\SelectPolicyView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\MyMeemic\Claims\AutoClaimsStepOneView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -231,6 +234,11 @@
       <DependentUpon>SelectPolicyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MyMeemic\Claims\SelectPolicyViewModel.cs" />
+    <Compile Include="ViewModels\MyMeemic\Claims\AutoClaimStepOneViewModel.cs" />
+    <Compile Include="ViewModels\MyMeemic\Claims\AutoClaimStepTwoViewModel.cs" />
+    <Compile Include="Views\MyMeemic\Claims\AutoClaimsStepOneView.xaml.cs">
+      <DependentUpon>AutoClaimsStepOneView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
