@@ -11,18 +11,18 @@ namespace MeemicMobileApp
         {
             InitializeComponent();
 
-            if (hasCompletedOnboarding)
-                MainPage = new MeemicMobileAppPage();
-            else
-            {
-                var fp = new MeemicHolderQuestionView();
+            //if (hasCompletedOnboarding)
+            //    MainPage = new MeemicMobileAppPage();
+            //else
+            //{
+            //    var fp = new MeemicHolderQuestionView();
 
-                var np = new NavigationPage(fp);
+            //    var np = new NavigationPage(fp);
 
-                MainPage = np;      
-            }
+            //    MainPage = np;      
+            //}
 
-            //MainPage = new Views.Shared.DevelopmentSandboxView();
+            MainPage = new Views.Shared.DevelopmentSandboxView();
 
         }
 

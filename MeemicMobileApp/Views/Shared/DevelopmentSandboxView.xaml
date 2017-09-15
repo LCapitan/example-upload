@@ -5,7 +5,7 @@
             xmlns:controls="clr-namespace:MeemicMobileApp.CustomControls; assembly=MeemicMobileApp"
             xmlns:viewModels="clr-namespace:MeemicMobileApp.ViewModels.Shared; assembly=MeemicMobileApp"
             xmlns:views="clr-namespace:MeemicMobileApp.Views.MyMeemic.IDCards; assembly=MeemicMobileApp"
-            x:Class="MeemicMobileApp.Views.Shared.DevelopmentSandboxView" BackgroundColor="Green">
+            x:Class="MeemicMobileApp.Views.Shared.DevelopmentSandboxView" BackgroundColor="White">
 
     <ContentPage.Content>
         <StackLayout>
@@ -20,6 +20,11 @@
             </controls:RadialButtonControl>
 
             <Label BindingContext="{x:Reference testRadial}" Text="{Binding SelectedOption.Title}" />
+
+            <controls:AnimatedTextBoxControl HeightRequest="75" />
+
+            <Entry />
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
